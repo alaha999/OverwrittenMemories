@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<title>My Blogs</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+  body,h1 {font-family: "Raleway", sans-serif}
+  
+  <!--Responsive Text -->
+  @media screen and (min-width: 601px) {
+  div.example {
+  font-size: 80px;
+  }
+  }
+  
+  @media screen and (max-width: 600px) {
+  div.example {
+  font-size: 20px;
+  }
+</style>
+
+<body>
+  <div>
+    <!--Show the Menu-->
+    <div class="w3-display-topleft w3-padding-small w3-small w3-text-black ">
+      <button class="w3-button w3-hover-black " onclick="document.location='./index.html'" >Home</button>
+      <button class="w3-button w3-hover-black " onclick="document.location='./AboutMe.html'" >AboutMe</button>
+      <!-- <button class="w3-button w3-hover-black " onclick="document.location='./KeralaClicks.html'" >Research</button>-->
+      <button class="w3-button w3-gray " onclick="document.location='./MyBlogs.html'" >MyBlogs</button>
+      <button class="w3-button w3-hover-black " onclick="document.location='./Photography.html'" >Photography</button>
+    </div>    
+  </div><br><br>
+
+  <div class="w3-display-middle w3-text-black">
+	<h1 class="w3-jumbo w3-animate-top">May be Later</h1>
+	<hr class="w3-border-grey" style="margin:auto;width:40%">
+	<p class="w3-large w3-center">Couldn't code yet!</p>
+  </div>
+  
+<!-- Script for Hovering-->
+
+<div id="modal01" class="w3-modal" onclick="this.style.display='none'">
+  <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
+  <div class="w3-modal-content w3-animate-zoom">
+    <img id="img01" style="width:100%">
+  </div>
+</div>
+
+<script>
+  function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  }
+</script>
+
+</body>
+</html>

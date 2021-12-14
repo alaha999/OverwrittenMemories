@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<title>Arnab Laha</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+  body,h1 {font-family: "Raleway", sans-serif}
+  
+  <!--Responsive Text -->
+  @media screen and (min-width: 601px) {
+  div.example {
+  font-size: 80px;
+  }
+  }
+  
+  @media screen and (max-width: 600px) {
+  div.example {
+  font-size: 20px;
+  }
+</style>
+
+<body>
+  <div>
+    <!--Show the Menu-->
+    <div class="w3-display-topleft w3-padding-small w3-small w3-text-black ">
+      <button class="w3-button w3-hover-black " onclick="document.location='./index.html'" >Home</button>
+      <button class="w3-button w3-gray " onclick="document.location='./AboutMe.html'" >AboutMe</button>
+      <!-- <button class="w3-button w3-hover-black " onclick="document.location='./KeralaClicks.html'" >Research</button>-->
+      <button class="w3-button w3-hover-black " onclick="document.location='./MyBlogs.html'" >MyBlogs</button>
+      <button class="w3-button w3-hover-black " onclick="document.location='./Photography.html'" >Photography</button>
+    </div>    
+  </div><br><br>
+  
+  <div class="w3-container w3-center w3-padding-large">
+    <h1 class="w3-xlarge">More about me</h1>
+    <hr class="w3-border-grey" style="margin:auto;width:40%">
+    <br>
+    <p class="w3-center w3-large">Hi, I'm Arnab Laha, currently a Ph.D. Student at IISER Pune. My life starts from an unfamiliar place named Ghatal, 120 km away from Kolkata to the west. It is a small town on the bank of river Silabati, and life is usually slow and calm from the hustle and bustle of city life. After spending 18 years there, I went to Kolkata for my undergraduate degree in physics from Presidency University, Kolkata. For the first time, with the taste of freedom of being away from home, life became full of beans and courage with the splash of youth in the 86/1 college street address. After three years of a roller coaster journey and some unforgettable memories, it was the time to say goodbye to the old soul and welcome Hyderabad as the new chapter of the journey for my master's degree in physics. Two years at the University of Hyderabad was undoubtedly the best phase of my life, a place where I met a few good people who became family and the root of my existence. With the specialization in Particle Physics, I was looking for a Ph.D. position in India to make a career in Physics. Finally, I got selected at IISER Pune in 2018 and started my journey to become a scientist with Dr. Sourabh Dube, an extremely smart experimental particle physicist at IISER.  
+    </p><br><br>
+    
+    <h1 class="w3-xlarge">Trajectory</h1>
+    <hr class="w3-border-grey" style="margin:auto;width:40%">
+    <p class="w3-center w3-large">
+      <p1 class=" w3-xlarge w3-text-red"> Current City:</p1> Pune, Maharastra, India<br><br>
+      <p1 class=" w3-xlarge w3-text-red"> Places I've lived:</p1> Ghatal(Hometown), Kolkata, Hyderabad<br><br>
+      <p1 class=" w3-xlarge w3-text-red"> Bachelor of Science:</p1> Presidency University, Kolkata, India (2013-2016)<br><br>      
+      <p1 class=" w3-xlarge w3-text-red"> Master of Science:</p1> University of Hyderabad, Hyderabad, India (2016-2018)<br><br>
+      <p1 class=" w3-xlarge w3-text-red">Ph.D. in Physics:</p1> Indian Institute of Science Education and Research, Pune, India (2018-Ongoing)<br>
+    </p>
+  </div>
+</div>
+
+  
+  
+<!-- Script for Hovering-->
+
+<div id="modal01" class="w3-modal" onclick="this.style.display='none'">
+  <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
+  <div class="w3-modal-content w3-animate-zoom">
+    <img id="img01" style="width:100%">
+  </div>
+</div>
+
+<script>
+  function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  }
+</script>
+
+</body>
+</html>
