@@ -1,0 +1,420 @@
+# photography.yaml
+# Generated / updated by cloudinary_sync.py
+# Last synced: 2026-02-23 22:48 UTC
+#
+# Fields you should fill in for each new image:
+#   alt      : caption shown in the lightbox and used as alt text
+#   category : list of tags from the categories list above
+#   location : where the photo was taken
+#   year     : year the photo was taken
+#
+# DO NOT change the `src` field — it is the Cloudinary delivery URL.
+# DO NOT change the `public_id` field — it links back to Cloudinary.
+
+photography:
+  page_title:  Photography
+  eyebrow:     Visual Journal
+  intro: >
+    A collection of moments — street scenes, landscapes, and quiet corners caught between heartbeats. Shot mostly on film and the occasional digital frame.
+
+  grid_columns: 4
+
+  categories:
+    - all
+    - street
+    - landscape
+    - portrait
+    - travel
+    - "black & white"
+    - film
+
+  images:
+    - src:       "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_44_nuzxei.jpg"
+      public_id: Photo_44_nuzxei
+      alt:       Photo 44 nuzxei
+      category:  []
+      year:      2026
+
+    - src:       "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_51_gl0m5n.jpg"
+      public_id: Photo_51_gl0m5n
+      alt:       Photo 51 gl0m5n
+      category:  []
+      year:      2026
+
+    - src:       "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_32_ztwmds.jpg"
+      public_id: Photo_32_ztwmds
+      alt:       Photo 32 ztwmds
+      category:  []
+      year:      2026
+
+    - src:       "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_61_kubbzv.jpg"
+      public_id: Photo_61_kubbzv
+      alt:       Photo 61 kubbzv
+      category:  []
+      year:      2026
+
+    - src:       "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_11_yl2taw.jpg"
+      public_id: Photo_11_yl2taw
+      alt:       Photo 11 yl2taw
+      category:  []
+      year:      2026
+
+    - src:       "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_14_euxgpb.jpg"
+      public_id: Photo_14_euxgpb
+      alt:       Photo 14 euxgpb
+      category:  []
+      year:      2026
+
+    - src:       "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_12_mkmf44.jpg"
+      public_id: Photo_12_mkmf44
+      alt:       Photo 12 mkmf44
+      category:  []
+      year:      2026
+
+    - src:       "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_42_hollbw.jpg"
+      public_id: Photo_42_hollbw
+      alt:       Photo 42 hollbw
+      category:  []
+      year:      2026
+
+    - src:       "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_15_omzgej.jpg"
+      public_id: Photo_15_omzgej
+      alt:       Photo 15 omzgej
+      category:  []
+      year:      2026
+
+    - src:       "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_22_wixizg.jpg"
+      public_id: Photo_22_wixizg
+      alt:       Photo 22 wixizg
+      category:  []
+      year:      2026
+
+    - src:       "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_49_earw1m.jpg"
+      public_id: Photo_49_earw1m
+      alt:       Photo 49 earw1m
+      category:  []
+      year:      2026
+
+    - src:       "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_57_gucgx1.jpg"
+      public_id: Photo_57_gucgx1
+      alt:       Photo 57 gucgx1
+      category:  []
+      year:      2026
+
+    - src:       "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_60_nz5ior.jpg"
+      public_id: Photo_60_nz5ior
+      alt:       Photo 60 nz5ior
+      category:  []
+      year:      2026
+
+    - src:       "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_03_lq3xth.jpg"
+      public_id: Photo_03_lq3xth
+      alt:       Photo 03 lq3xth
+      category:  []
+      year:      2026
+
+    - src:       "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_13_fhqimb.jpg"
+      public_id: Photo_13_fhqimb
+      alt:       Photo 13 fhqimb
+      category:  []
+      year:      2026
+
+    - src:       "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_41_u94dj7.jpg"
+      public_id: Photo_41_u94dj7
+      alt:       Photo 41 u94dj7
+      category:  []
+      year:      2026
+
+    - src:       "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_67_qahexk.jpg"
+      public_id: Photo_67_qahexk
+      alt:       Photo 67 qahexk
+      category:  []
+      year:      2026
+
+    - src:       "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_28_og8it7.jpg"
+      public_id: Photo_28_og8it7
+      alt:       Photo 28 og8it7
+      category:  []
+      year:      2026
+
+    - src:       "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_48_ij8ef9.jpg"
+      public_id: Photo_48_ij8ef9
+      alt:       Photo 48 ij8ef9
+      category:  []
+      year:      2026
+
+    - src:       "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_10_qv2wyu.jpg"
+      public_id: Photo_10_qv2wyu
+      alt:       Photo 10 qv2wyu
+      category:  []
+      year:      2026
+
+    - src:       "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_34_k9ydqa.jpg"
+      public_id: Photo_34_k9ydqa
+      alt:       Photo 34 k9ydqa
+      category:  []
+      year:      2026
+
+    - src:       "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_02_grzalg.jpg"
+      public_id: Photo_02_grzalg
+      alt:       Photo 02 grzalg
+      category:  []
+      year:      2026
+
+    - src:       "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_54_gl9n2q.jpg"
+      public_id: Photo_54_gl9n2q
+      alt:       Photo 54 gl9n2q
+      category:  []
+      year:      2026
+
+    - src:       "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_31_wqoxbh.jpg"
+      public_id: Photo_31_wqoxbh
+      alt:       Photo 31 wqoxbh
+      category:  []
+      year:      2026
+
+    - src:       "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_52_trhbez.jpg"
+      public_id: Photo_52_trhbez
+      alt:       Photo 52 trhbez
+      category:  []
+      year:      2026
+
+    - src:       "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_63_yycojk.jpg"
+      public_id: Photo_63_yycojk
+      alt:       Photo 63 yycojk
+      category:  []
+      year:      2026
+
+    - src:       "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_01_aw80fe.jpg"
+      public_id: Photo_01_aw80fe
+      alt:       Photo 01 aw80fe
+      category:  []
+      year:      2026
+
+    - src:       "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_21_bnnkdq.jpg"
+      public_id: Photo_21_bnnkdq
+      alt:       Photo 21 bnnkdq
+      category:  []
+      year:      2026
+
+    - src:       "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_17_itpsly.jpg"
+      public_id: Photo_17_itpsly
+      alt:       Photo 17 itpsly
+      category:  []
+      year:      2026
+
+    - src:       "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_38_rgcxvy.jpg"
+      public_id: Photo_38_rgcxvy
+      alt:       Photo 38 rgcxvy
+      category:  []
+      year:      2026
+
+    - src:       "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_24_wswu0q.jpg"
+      public_id: Photo_24_wswu0q
+      alt:       Photo 24 wswu0q
+      category:  []
+      year:      2026
+
+    - src:       "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_46_n8tntm.jpg"
+      public_id: Photo_46_n8tntm
+      alt:       Photo 46 n8tntm
+      category:  []
+      year:      2026
+
+    - src:       "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_26_crdlvl.jpg"
+      public_id: Photo_26_crdlvl
+      alt:       Photo 26 crdlvl
+      category:  []
+      year:      2026
+
+    - src:       "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_40_fswqh4.jpg"
+      public_id: Photo_40_fswqh4
+      alt:       Photo 40 fswqh4
+      category:  []
+      year:      2026
+
+    - src:       "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_58_loxbye.jpg"
+      public_id: Photo_58_loxbye
+      alt:       Photo 58 loxbye
+      category:  []
+      year:      2026
+
+    - src:       "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_37_rcvtai.jpg"
+      public_id: Photo_37_rcvtai
+      alt:       Photo 37 rcvtai
+      category:  []
+      year:      2026
+
+    - src:       "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_04_zwwsix.jpg"
+      public_id: Photo_04_zwwsix
+      alt:       Photo 04 zwwsix
+      category:  []
+      year:      2026
+
+    - src:       "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_43_apf1kn.jpg"
+      public_id: Photo_43_apf1kn
+      alt:       Photo 43 apf1kn
+      category:  []
+      year:      2026
+
+    - src:       "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_05_xh0fc3.jpg"
+      public_id: Photo_05_xh0fc3
+      alt:       Photo 05 xh0fc3
+      category:  []
+      year:      2026
+
+    - src:       "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_27_replne.jpg"
+      public_id: Photo_27_replne
+      alt:       Photo 27 replne
+      category:  []
+      year:      2026
+
+    - src:       "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_08_slc3vn.jpg"
+      public_id: Photo_08_slc3vn
+      alt:       Photo 08 slc3vn
+      category:  []
+      year:      2026
+
+    - src:       "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_09_vyof3r.jpg"
+      public_id: Photo_09_vyof3r
+      alt:       Photo 09 vyof3r
+      category:  []
+      year:      2026
+
+    - src:       "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_33_szhxiv.jpg"
+      public_id: Photo_33_szhxiv
+      alt:       Photo 33 szhxiv
+      category:  []
+      year:      2026
+
+    - src:       "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_56_grw62j.jpg"
+      public_id: Photo_56_grw62j
+      alt:       Photo 56 grw62j
+      category:  []
+      year:      2026
+
+    - src:       "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_55_oqvvpn.jpg"
+      public_id: Photo_55_oqvvpn
+      alt:       Photo 55 oqvvpn
+      category:  []
+      year:      2026
+
+    - src:       "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_65_w1jdhv.jpg"
+      public_id: Photo_65_w1jdhv
+      alt:       Photo 65 w1jdhv
+      category:  []
+      year:      2026
+
+    - src:       "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_66_xpv8o8.jpg"
+      public_id: Photo_66_xpv8o8
+      alt:       Photo 66 xpv8o8
+      category:  []
+      year:      2026
+
+    - src:       "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_20_kabnuf.jpg"
+      public_id: Photo_20_kabnuf
+      alt:       Photo 20 kabnuf
+      category:  []
+      year:      2026
+
+    - src:       "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_53_gxstyj.jpg"
+      public_id: Photo_53_gxstyj
+      alt:       Photo 53 gxstyj
+      category:  []
+      year:      2026
+
+    - src:       "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_30_v69wop.jpg"
+      public_id: Photo_30_v69wop
+      alt:       Photo 30 v69wop
+      category:  []
+      year:      2026
+
+    - src:       "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_25_oati23.jpg"
+      public_id: Photo_25_oati23
+      alt:       Photo 25 oati23
+      category:  []
+      year:      2026
+
+    - src:       "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_50_lmdio4.jpg"
+      public_id: Photo_50_lmdio4
+      alt:       Photo 50 lmdio4
+      category:  []
+      year:      2026
+
+    - src:       "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_16_c9xtxb.jpg"
+      public_id: Photo_16_c9xtxb
+      alt:       Photo 16 c9xtxb
+      category:  []
+      year:      2026
+
+    - src:       "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_45_xegubj.jpg"
+      public_id: Photo_45_xegubj
+      alt:       Photo 45 xegubj
+      category:  []
+      year:      2026
+
+    - src:       "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_39_b5wsve.jpg"
+      public_id: Photo_39_b5wsve
+      alt:       Photo 39 b5wsve
+      category:  []
+      year:      2026
+
+    - src:       "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_19_lmpeiz.jpg"
+      public_id: Photo_19_lmpeiz
+      alt:       Photo 19 lmpeiz
+      category:  []
+      year:      2026
+
+    - src:       "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_35_ggibbh.jpg"
+      public_id: Photo_35_ggibbh
+      alt:       Photo 35 ggibbh
+      category:  []
+      year:      2026
+
+    - src:       "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_18_k6tr8i.jpg"
+      public_id: Photo_18_k6tr8i
+      alt:       Photo 18 k6tr8i
+      category:  []
+      year:      2026
+
+    - src:       "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_06_lf2uy4.jpg"
+      public_id: Photo_06_lf2uy4
+      alt:       Photo 06 lf2uy4
+      category:  []
+      year:      2026
+
+    - src:       "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_59_doyeki.jpg"
+      public_id: Photo_59_doyeki
+      alt:       Photo 59 doyeki
+      category:  []
+      year:      2026
+
+    - src:       "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_47_mctvyp.jpg"
+      public_id: Photo_47_mctvyp
+      alt:       Photo 47 mctvyp
+      category:  []
+      year:      2026
+
+    - src:       "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_23_sylrwp.jpg"
+      public_id: Photo_23_sylrwp
+      alt:       Photo 23 sylrwp
+      category:  []
+      year:      2026
+
+    - src:       "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_07_tedl9l.jpg"
+      public_id: Photo_07_tedl9l
+      alt:       Photo 07 tedl9l
+      category:  []
+      year:      2026
+
+    - src:       "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_64_br4ujy.jpg"
+      public_id: Photo_64_br4ujy
+      alt:       Photo 64 br4ujy
+      category:  []
+      year:      2026
+
+    - src:       "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_36_d5tm8m.jpg"
+      public_id: Photo_36_d5tm8m
+      alt:       Photo 36 d5tm8m
+      category:  []
+      year:      2026

@@ -1,196 +1,707 @@
 <!DOCTYPE html>
-<html>
-<title>Arnab Laha</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-<style>
-  body,h1 {font-family: "Raleway", sans-serif}
-  <!--body, html {height: 100%}-->
-  
-  <!--Responsive Text -->
-  @media screen and (min-width: 601px) {
-  div.example {
-  font-size: 80px;
-  }
-  }
-  
-  @media screen and (max-width: 600px) {
-  div.example {
-  font-size: 20px;
-  }
-</style>
-
-<body>
-  <div>
-    <!-- Automatic Slideshow Images-->
-    
-    <!-- CMS tracker -->
-    <div class="mySlides w3-display-container w3-center">
-      <img src="https://cms.cern/sites/cmsexperiment.web.cern.ch/files/2020-07/detector_stripe01-min_0.jpg" style="width:100%">
-      <div class="w3-display-middle w3-text-white">
-	<h1 class="w3-jumbo ">Tracker</h1>
-	<hr class="w3-border-grey" style="margin:auto;width:40%">
-	<p class="w3-xlarge w3-center">CMS Experiment</p>
-      </div>
-    </div>
-
-    <!-- Higgs Event -->
-    <div class="mySlides w3-display-container w3-center">
-      <img src="https://cds.cern.ch/record/2724112/files/HIG-19-015_3.png" style="width:100%">
-      <div class="w3-display-middle w3-text-white">
-	<h1 class="w3-jumbo "></h1>
-	<hr class="w3-border-grey" style="margin:auto;width:40%">
-	<p class="w3-large w3-center"> A candidate p-p collsion event where Higgs is produced in asscociation with a top quark and decays into two photons</p>
-      </div>
-    </div>
-    
-    <!-- Image 1-->
-    <div class="mySlides w3-display-container w3-center">
-      <img src="https://lh3.googleusercontent.com/K6HVpvul5SiQRGuUIfYt4gIxDEnBdyy-blxUjMHHGKJDFXINo3R6FKyK30MKhRhNtEIbQl1Utiu08WNeEOMsAHsG9qPr_Zver9t-z8hsFX-ZqogfNPGs8oAJ13SdEMvt8jGwZvl-xvWTJp4gW8Dhoqd4j-QWtV6Rji7JueeJVjjJ2xvz80qz_lGm3_6GYxbCMtPi3v6r_BGpc1V_oDBEFyLtSshmeFRLT8Sz_kIyyPfpoqVr6qrgVw899jAIu7YYyo6RXrw4sgll4apypI5GH7Od2w4Uy1G-wvrViwYF7j41gmXNrFBXDUK7Fqft9zdHc97jfWphkRckSUVhtU6NYhnbBDuxiGLR5bekesuv4pUj1UZjBtYvIOF1rQIBO08puEOFd5rxC_3HjT2Hbb9or-NbWXg6iEsGVLo0_8VHEuIU6pqvX_bcqghAZzX5ofj5cCLYRZkCzjit6tqFOvCbhaEeZxTTb1mRMtWm1tLpH5I-S0SarmeSoZQRsQqXyaZRaHre7HfSziZWDm0JZmKXU1XWp8d30gywM9BXVxwoUd92QoMA_U75Fh0AXSxJIWCoS0tG0n3G0Aa4vX6bYSHCyc4CJwL1ZNLdnQr-rkYcFm6Pd7CJEVvgKtRHD8E_KqwDt6PLdZlqlCDvsBEujU9jSXh0SoKhbzOmrgesCq_FxY7EbNI8Glh_rzRNi6R3yFsSeP9YRafVKo_aBKpIPXaDSgo=w1613-h908-no?authuser=3" style="width:100%">
-      <div class="w3-display-middle w3-text-white">
-	<h1 class="w3-jumbo ">Kollam</h1>
-	<hr class="w3-border-grey" style="margin:auto;width:40%">
-	<p class="w3-large w3-center">December 2014</p>
-      </div>
-    </div>
-    <!--image2-->
-    <div class="mySlides w3-display-container w3-center">
-      <img src="https://lh3.googleusercontent.com/rvytclSxoeyVacfbfWPrFEm2troFnPvx6eYWSFdOS0DIISdV1KVG-byXYFCV4Y2-GbN2OxPmQuA9a4golc5YCx05pcfbICB_ZtWa5tsy38r6okAV42PvYjoWIDPbzPPRveM4q_X5R5p3xHtFpauN9r1hO1OiWjopS_fZ3b2XDaIkjuvPE1IvQAns93IlTA52WmQEIs6QEv9DlzX-Oov0fDexlZCRHuU-rtIHpw-lYFqbMXBdH-j_Lxtc22YJvq47LLNE2-UiCnQ619SO5Y1Q6A4W6J2TLP1jraA91EX43mtFtGnEIsA8e5DPzKpLwFHoD1DV418UO2BGjASgD76ECwr3CillMxSpAqgJKVuOvIbEdJSFyKNqppQO9XRsaw7h3o8aZy7xVUvKSeGVEGBMZxk5fjMF3g0RTWHXD-96IsTuJFJen3m47OpHXjRk8jH6arRE80G7BT0AbpYUICI9Mr99XnVjqNNS0C4FUrM2L33MhlFXS-XNQRDD0w6Pg3hH8KKLQjs-oiuO05DuhvUHxtulsg--VOxbFFWVJLXcYfq42IX4S1xfzLvr-HRodk5QxnjYK1q5K5CY5VFIix20XT4lCDxK_8w2REkfPEGJWoXZsEvpFH5eBnIRAixVfIWxp-Ek-_L0_qjsUeOR-ZMuYY6FgsKDCYJ1F5kb59hwwV2vlzOn9l4oueVPFmiGceAVT7cOcjhOtLt0To4UVbur4nc=w1625-h914-no?authuser=3" style="width:100%">
-      <div class="w3-display-middle w3-text-white">
-	<h1 class="w3-jumbo w3-animate-top">Munnar</h1>
-	<hr class="w3-border-grey" style="margin:auto;width:40%">
-	<p class="w3-large w3-center">December 2014</p>
-      </div>
-    </div>
-    
-    <!--image3-->
-    <div class="mySlides w3-display-container w3-center">
-      <img src="https://lh3.googleusercontent.com/MmfeBc81wYiyaXJFmeBmSr1i_edkIAZJYcAHidFMJdZrkuuAjX6j1RMXXjfRvt2bEyqTxVjN2vu96o_pjZ-wEBX9utD3c0LzGbqaJiznoAhBn6Fvh9QCaIX414pBrUloD5705SXTK_znOWbCbxndMr6eoalG3w2TwSAbNQEY44mXh7inJkZbZxcBQpbujvp4yPEFI5BLeZ5S1vdejFKqKk9MPxuydF-7lspsxqf1Y8U7poS4imcWeBmWxiyQpAWR0Tu4jZLtCp_cJkMC-lCZidj1Lr8mMSjFtNz3n0ZuAxN3GcI_C98J_NzrG1DVH1ES_fbqyh_mFERh_Gv6zxUT4YdJZtMgyXmcxK9Ilj2KZqggP1cjTwT7V_p974q80OqtZqmruOrbFYKHqG0kdFKbdEVvReTGIeRvS7I3Ucg6GUxnuTPCR5ga6K3380l3rOh-Ejd4CUgyLLfJAmTRp7Ry96Fp89vTdBi5qS5B6VwULnQ3sOTTS7lepe8uJojoneZoGetUq78xg9kUUyRaHiTnujTADAwwXKrm1jQx3BZAmu8UAugIIZdQF-xIuEfgdhOhk85dHKX6FharVGaIYxzXUf4PeCbFsMDGmKmwiF-yvIkh0B0SnftaYM2gikS6rjqykT76wAMLOQ6icV5ldeq0rJ1Plx6WUC1Ch7HAUwUsZC9r_i73NSDZcIY_SvkgOArqoMhIjTRqdK68opEZBX5a_FQ=w1178-h663-no?authuser=0" style="width:100%">
-      <div class="w3-display-middle w3-text-white">
-	<h1 class="w3-jumbo w3-animate-top">Varkala</h1>
-	<hr class="w3-border-grey" style="margin:auto;width:40%">
-	<p class="w3-large w3-center">December 2014</p>
-      </div>
-    </div>
-    
-
-    <!--image4-->
-    <div class="mySlides w3-display-container w3-center">
-      <img src="https://lh3.googleusercontent.com/w0GGd4Uyp14tY9gCAlE37Vjm6QeRkmpOIdCw5KCtog2Im3Y1Ib_50G4Y7OVjqbqxzSa8HRoYGjcHfcRfvejVnSOpYgReToXy39hRUdEK8Qp2X6CnyMAqAE0Zq9z_EBhBDRKwtPxR6E2e9LkRAqqigSgHl7tpt5WWdNgRYPbiNC1O3E75a8HhPWWf2dPWdzyl3_2gtW6x4vrBC7iof7ffr0lAk6UzX4YdJnvi_Lc-vVdihi96ZeEe-noS1Huk5nyLawrN0VooIcIxPXwk3PBmNRwWm9FgfOXfa3qHza9lrohThbijENAX3wPnELAZZ3o-C-jcvd9x5H8j6uXR-jzhSNdGYmvZ152mrQ-822RucoBrrBv61us6-UgviF3QYiz1Dqjw4DejQ8qN510jO5a9Uuth4-OwQGA44PFA5DsG88AEAh17ntWHgzlAnMjiH9vaeBYak_83jURKTrSEMnKJEQvRJ1ecELkXkzbBdr2UAzCGXh7Qbdbi3Jk4lz3Sr_TK8V4o3PY2IYTscU5BH6pqR9BqN2TpgX72rEixoTg2nmM5yAKbDscilCIQNyLsDzup254-JnvX-neg9snt3CywHa9vg5_Wmqe259y7hv28QlKDc1OWJK-kdsnc6aLzc0w9FNjmOA2fJ-9hFZGvsIMjUESpU1ouMOoKyprTNw7Gabh2DElgi-6WcVb4XZc-uefP7sny7M9IRBlvfVjzDtNY7zU=w1625-h914-no?authuser=0" style="width:100%">
-      <div class="w3-display-middle w3-text-white">
-	<h1 class="w3-jumbo w3-animate-top">Kolkata</h1>
-	<hr class="w3-border-grey" style="margin:auto;width:40%">
-	<p class="w3-large w3-center">October 2021</p>
-      </div>
-    </div>
-
-    <!--image5-->
-    <div class="mySlides w3-display-container w3-center">
-      <img src="https://lh3.googleusercontent.com/pw/AM-JKLW13FCyoivU3XyYTalTmHCfP1Z7Prytp8z-lkGyf6Wc-AryJ61KTsy-8YmdqTiU1_gUNpEI0MBktJkDYfxaFl3oELOHCDTVRnqpLOd2795G8pt09gOFJI2EVGMkRZFcC6wbA8j0kA7GOT397iDZ3PyQ=w1625-h914-no?authuser=3" style="width:100%">
-      <div class="w3-display-middle w3-text-white">
-	<h1 class="w3-jumbo w3-animate-top">Goa</h1>
-	<hr class="w3-border-grey" style="margin:auto;width:40%">
-	<p class="w3-large w3-center">July, 2019</p>
-      </div>
-    </div>
-
-    <!--image6-->
-    <div class="mySlides w3-display-container w3-center">
-      <img src="https://lh3.googleusercontent.com/h5vm4PvnXkEBBsKGD6SvHH1iOpWizMjzNkWhEm6OnOI78nHwio20tlIkTYjDzVqlxiHLmajZaB9H6RC0kVSx7b039CW4eRiILwX88aMgJ5Wsj5cwgAyxIquzpTOe2DCBFuoFrlcNCZxTCywX_BtgF2Z8aWfCZfb0z3P8VPAQiAs3SyryRK7BY7RJQisJtKvKM2rWrWzWi40v-XrCFwRamPecfMX-Axw2hH4cta6mhT6YwyrWwIaRCenGzddAUgMcOgv2aoFdTlNEGh0iheK23HVczXQcmjFpm3u-dWilR6GYxnLixOPr_H1kwjejw8QVaZRnAPnDQpg66rZYXNUxWqFletLvg96wqa26xndo_KrnfnEflvDLaJpecyIvfQnf71LGRSxxALja1f6sULnjvd7unpuIPF6d5GuZpodqL93hGUd65zzcjvpXcASGY66tuqDi01wn6tTyfVDdUyPfKBSq-eMYY7o2MA-Lc_9Mt38EbHZW8KN0DK5jvOAAKdrYkp74wOMoJn04zmY6-2EL2qBrWjNmT35AwS-2FBEKXF2AXMHO0Yginc-6KLEZUdW_QNk8IswxLSiY4TePwfUIJIi5SRtSDEVkjw0fyQuljtQVtUvdSE0_RR4Fr_fTYchgqx5FUkF72Im3yqBpmALs5cBKvuWCNRh9K1qiz5_A37zB8WpiqnESOrOQGJo42brZw_yO9Dg2rlE6C-tIN5SRZUk=w1371-h914-no?authuser=0" style="width:100%">
-      <div class="w3-display-middle w3-text-white">
-	<h1 class="w3-jumbo w3-animate-top">Pune</h1>
-	<hr class="w3-border-grey" style="margin:auto;width:40%">
-	<p class="w3-large w3-center">August, 2021</p>
-      </div>
-    </div>
-
-    <!--image7-->
-    <div class="mySlides w3-display-container w3-center">
-      <img src="https://lh3.googleusercontent.com/tinETsCmb1ykSAWe1cQSc16R6imdehGqCTyBX2vFvzrt1ncteEuD9fgm3aHxM9u_-FN8Pby55VbRzk1egu5zTqiYvytf6pMqmlqxqvAZk-pDGB4Twfjzh7btpZE1dpbvj7cqAaEfzMOzI9c1E32o8OCJZJqQwSN_K-A1pO1h1lhAo7Blz9uw7zljXkRtcMaHHOgFYotCW_E-xvuCVoAgIEmxr3Vi7cObpmL_r4Ot56gI-KHQYrpWW3HQlRqW05GYHFCNyOP4FiTO6MY6JQjlqDPPu_8LVGqXvYzKjcpVoPU-Eow_EZSOVMS9eR9P0VcWkcmT4rU64eNQosGLrTDwruRqwc44Mr2wmtsmaajlKn49mURSf3ac05LSFD_HzbNUuk80GsX4Mm7AdBfniYM0moIalgoWS-sqLOq1-CedbKJCAPkqQMw8I7M9Op3ljUZTpIFfXle6f0BE7on0amNJDMU7-tdYn4r-y6AvmQ8ZAAHbJtABdZYdMM84S58Qif360y9s8GzjV31q-FsngD3IT_JHUpFVxXhMvEoy1BfeFksvBByTj3-km_D2D-GMskxSpm92TbFwwXwTNdbBjiGMP4EIPiWRY641B3cCeQaB80GtfOEcsB4bxnBJMbPz-ohI3HaSjydeLOsUOfcgALmUSG1zqC39bpNfFssod7n5rCxt5Z0D6--ESsnOmDojS8y5lV-HhUHZqEd-Nggw6XZUaps=w1178-h663-no?authuser=0" style="width:100%">
-      <div class="w3-display-middle w3-text-white">
-	<h1 class="w3-jumbo w3-animate-top">Bhutan</h1>
-	<hr class="w3-border-grey" style="margin:auto;width:40%">
-	<p class="w3-large w3-center">June, 2015</p>
-      </div>
-    </div>
-
-    <!--image8: Kashid Beach-->
-    <div class="mySlides w3-display-container w3-center">
-      <img src="https://lh3.googleusercontent.com/1h0DVjyadXc_nBnqwwJ8M30x9szEORCHm2Ni_TMLlYqPWKFK5Zo57FANUh20XqtEHbt5C8KSJZcE7xSaEI5Q6WZzhXoWbJIm09AOjWzbZNeXM0kAuLYAiloBnUdZdQ-yCV4brYQlJPti_qbry2JhMaUknKi-UFq_tntVds19-MRR1IF6yGoC7www9npcwxtsCYFoXMIcDgTOWV_yFwO9qSbi8lIRHvoDP8wc7Tb84hSjiHFVfqBWzT4SobPHyoZC9A3QXw2BUkBF_1UAezxSXM_zRjwQ-CPHhwiNmY53juW6PwIJqjkR-u1db5NRBNJIkceo4HpF9HvO-aYxTLg9zXsGyOEUqmRo9WvrEDeJQUTzQk-esxlpULahV4_X_wZ_6jv-Z-BCfdnpGcLpWj5-Kj2KSOlBSUy7GwJHOH1I04WbqxWI5xjMRX_8GMfkt7sCTmy45x81ItLmzk_ty9AZVIH3HB1lPTjnT-IsTISIyo-qgzZWGXdYjVuSfoaxp1SNbGdiGvVlvbAjq2yab6wZe1VPjhPUOOJAOPeWikqOuW1H0URMRFN1pnT1Git3ozTA4z-KD-Q0Ehw_i_2uzfbRP9nvuq93bousAgZ6Kd9BU-PJZ4hNdfyyjEvnBAHvaLQJaH6cBnkiSeu7WibbqKnXR0rhdMlj52qgsFWLG7YgF-Z_OtZP7nzdEDv25kkgvxrJEB95R0K_-q00dL6YFwm8es0=w1178-h663-no?authuser=0" style="width:100%">
-      <div class="w3-display-middle w3-text-white">
-	<h1 class="w3-jumbo w3-animate-top">Kashid</h1>
-	<hr class="w3-border-grey" style="margin:auto;width:40%">
-	<p class="w3-large w3-center">December, 2019</p>
-      </div>
-    </div>
-
-    <!--image9: Human Face-->
-    <div class="mySlides w3-display-container w3-center">
-      <img src="https://lh3.googleusercontent.com/5lGmUm1QM7-9xDiYkfoC8KWaWQosdx6fTQ3QiLKejyBI2351zZRHn0MXKl3FJ0T9yb1wAslo3nesHjAA_oT1seqI6KcHkOpMu06Dt2uefA-DtZaefoP-8cYhfotRrQ_zpvZY4dQrrFaWYYq1mtTaCy0KuFZGWheXtW3UnWk7otwERDPJDCk23GVzsRN6P4CSV-r0ABBPzKxuXiirlzSpjYL62_hq21nuBQr5ip-DNE7mIiFcpBhVUx_0DCDv_LbRsMnrZHi0YuIpp1lcrr6cFRwD2_VGAAN-BqIwNoPkgOto7T1VRdY4mrmULrTxeS2Hem8k1GnqINUFkdCp-kbDtaXju8PLrqiY1OGyc_uIm6WvVqnBFt6ntwbQQOMxmnDu5hunCe9mAtpy3kmJ-qT5ZKJJI770dlyMLH-w4pEyt9UjrAvJiMr3vqayYkivYW5oB1NRnSrZ2cKvpHvM5YbaqUHiz3iq8SgYnXabier9qK4LdfnQHqDbQiLThM_Qn7DUfhsGhJ7cSPAcOMq7pDoq2grGSAqWnYMXMEAOOShess76VRogqPs4XvwGOZO8ORv_-KXviophq_SpKElDekUEX6Mrq1ZFtHWs9X01Fo7Nk_ySfR1nqmipwCgiJ16Tv1PA662-FYPQe2Be-3Uc2brUkj6VEml-q67ijs2tXx2fYTaseE4O8WcMhG26XHyKUNqsCiS5U_vuRIE7moi7aEgsbvs=w1178-h663-no?authuser=0" style="width:100%">
-      <div class="w3-display-middle w3-text-white">
-	<h1 class="w3-jumbo w3-animate-top">Human Face</h1>
-	<hr class="w3-border-grey" style="margin:auto;width:40%">
-	<p class="w3-large w3-center">May, 2020</p>
-      </div>
-    </div>
-
-    <!--image10: City Lights-->
-    <div class="mySlides w3-display-container w3-center">
-      <img src="https://lh3.googleusercontent.com/fjazvLVa5tdUYv6cCiNeVXWyGd43-OtRke1UDNL0Pycr7bD8VpZ_CyftAeNnyuI4UYVaorlOBvwzcL61hVsBt2YbvAxlMnJxLEXpce8dlBkwJtB_RybNdBwaa51As_WsVjw-aIoQvgmBl6WqQ0oEIlLsEdskriFijzWC8aUYtMnH88yIxt7BP1q0W4KSGi0cOcIJR0mKueGgWgzkf9gPF6ygxLFTArPvcuA4H_ceCoR1r-mw5nZlTqHOlz4Tl0ejdwmng4STJ2d4tlUeaYQGUvE67dssU-2yUv5Kd5oc8ujyktCi-sv1Rz0Qv0RZF81NaZMzfbSrK0AFxf2VqPh9u1fCENR26CefLZgt2qUTp0mAVgi51SaCt_nciUo5wbEEaL0VnUOCObUTv1obC07sRVihy8JybOpNIrFhRpbVYBnXSTIlydHRZL5T8S_TrsNT24CzUU0vI_cLsdCWLABMIf7auL0eKU6oPDVr5j7KPj96NLrpKNQOQO6fWkF1Q5n1YXK9NgVV7ExPOXtJwQnqlZ1sTfB_E_WL3ilH7UEG2nDgzpCX_3mXXxouw0X5vuf7wcLqp330Wb5HRT7NvbhJzcEfmEaJjXvpvrpP4GEe75fq3kRICKDdja9zFLUSdwh4-uqgm2_OcpeMK2ZdSka5T0GHqIPbZq848fYF6IUyJz2N7EeAM19-U4LDFhTFTf4zrI1pcM-eMgS2XnIvkIWn0HY=w818-h461-no?authuser=0" style="width:100%">
-      <div class="w3-display-middle w3-text-white">
-	<h1 class="w3-jumbo w3-animate-top">City Lights</h1>
-	<hr class="w3-border-grey" style="margin:auto;width:40%">
-	<p class="w3-large w3-center">December, 2020</p>
-      </div>
-    </div>
-
-    
-    <!--Show the Menu-->
-    <div class="w3-display-topleft w3-padding-small w3-small w3-text-white ">
-      <button class="w3-button w3-hover-black " onclick="document.location='./index.html'" >Home</button>
-      <button class="w3-button w3-hover-black " onclick="document.location='./AboutMe.html'" >AboutMe</button>
-      <!--<button class="w3-button w3-hover-black " onclick="document.location='./KeralaClicks.html'" >Research</button>-->
-      <button class="w3-button w3-hover-black " onclick="document.location='./MyBlogs.html'" >MyBlogs</button>
-      <button class="w3-button w3-hover-black " onclick="document.location='./Photography.html'" >Photography</button>
-    </div>
-  </div>
-
-  <div class="w3-container w3-center w3-padding-large">
-    <h1 class="w3-large">Hello! Welcome to my webpage</h1>
-    <hr class="w3-border-grey" style="margin:auto;width:40%">
-    <br>
-    <p class="w3-left w3-large">I'm a grad student at IISER Pune, India working for my Ph.D. in Experimental High energy Physics. Our group is a part of the CMS collaboration based on CMS experiment, a multipurpose detector at the Large Hadron Collider, CERN. My work focuses on exploring beyond the standard model (BSM) physics signatures using the recorded high energetic proton-proton collisions and dedicated CMS software improvements.<br>
-      Apart from the academic activities, I like to explore coding world, an avid football fan and a keen traveler who has a great interest in photography, music, politics, and diverse culture. 
-    </p>
-  </div>
-</div>
-
-<div class="w3-left w3-padding-large">
-  <p>This webpage is mostly non-academic.</p>
-  Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a>
-  
-</div>
-
-<!-- Script for slideshow-->
-<script>
-// Automatic Slideshow - change image every 4 seconds
-var myIndex = 0;
-carousel();
-
-function carousel() {
-  var i;
-  var x = document.getElementsByClassName("mySlides");
-  for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none";  
-  }
-  myIndex++;
-  if (myIndex > x.length) {myIndex = 1}    
-  x[myIndex-1].style.display = "block";  
-  setTimeout(carousel, 4000);    
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Overwritten Memories — Home</title>
+  <meta name="description" content="A personal photography blog - moments collected from roads taken and roads imagined.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg: #f5f0eb;
+  --bg2: #ede8e1;
+  --surface: #faf7f4;
+  --border: #ddd5c8;
+  --text: #2c2520;
+  --text-muted: #6b5e52;
+  --text-dim: #9e8e82;
+  --accent: #7a5c44;
+  --accent-mid: #a07858;
+  --accent-light: #e8ddd3;
+}
+[data-theme=dark] {
+  --bg: #1a1614;
+  --bg2: #231f1c;
+  --surface: #2a2521;
+  --border: #3d3530;
+  --text: #f0ebe4;
+  --text-muted: #b09a8a;
+  --text-dim: #6b5a50;
+  --accent: #c49a6c;
+  --accent-mid: #a07858;
+  --accent-light: #3d2e22;
 }
 
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --max: 1400px;
+  --serif: 'Lora', 'Georgia', serif;
+  --sans:  'DM Sans', sans-serif;
+  --mono:  'JetBrains Mono', 'Fira Mono', monospace;
+  --nav-h: 58px;
+  --transition: background .25s ease, color .25s ease, border-color .25s ease;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--text);
+  transition: var(--transition);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg2); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent-mid); }
+
+/* ── Selection ── */
+::selection { background: var(--accent-light); color: var(--accent); }
+
+/* ── Animations ── */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(.96); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+
+/* ── Navigation ── */
+.nav {
+  position: sticky; top: 0; z-index: 100;
+  height: var(--nav-h);
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex; align-items: center;
+  padding: 0 28px;
+  gap: 0;
+  transition: var(--transition);
+}
+.nav-brand {
+  font-family: var(--serif); font-size: 1.15rem; font-weight: 400;
+  color: var(--text); text-decoration: none; letter-spacing: .01em;
+  white-space: nowrap; margin-right: auto;
+}
+.nav-brand em { font-style: italic; color: var(--accent-mid); }
+.nav-links {
+  display: flex; align-items: center; gap: 2px; margin-right: 12px;
+}
+.nav-link {
+  font-family: var(--sans); font-size: .82rem; font-weight: 400;
+  color: var(--text-muted); text-decoration: none; letter-spacing: .04em;
+  padding: 6px 14px; border-radius: 6px;
+  transition: color .15s, background .15s;
+}
+.nav-link:hover  { color: var(--text); background: var(--bg2); }
+.nav-link.active { color: var(--accent); font-weight: 500; }
+.nav-actions { display: flex; align-items: center; gap: 4px; }
+.nav-btn {
+  width: 34px; height: 34px; border-radius: 7px;
+  border: 1px solid transparent; background: none; cursor: pointer;
+  color: var(--text-muted); display: flex; align-items: center; justify-content: center;
+  transition: color .15s, background .15s, border-color .15s;
+}
+.nav-btn:hover { color: var(--text); background: var(--bg2); border-color: var(--border); }
+.nav-hamburger { display: none; }
+
+/* ── Search overlay ── */
+.search-overlay {
+  display: none; position: fixed; inset: 0; z-index: 200;
+  background: rgba(0,0,0,.5); backdrop-filter: blur(4px);
+  align-items: flex-start; justify-content: center;
+  padding-top: 80px;
+}
+.search-overlay.is-open { display: flex; animation: fade-in .15s ease; }
+.search-box {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 14px; width: min(600px, 92vw);
+  box-shadow: 0 20px 60px rgba(0,0,0,.25);
+  overflow: hidden; animation: scale-in .18s ease;
+}
+.search-input-wrap {
+  display: flex; align-items: center; gap: 10px;
+  padding: 14px 18px; border-bottom: 1px solid var(--border);
+}
+.search-input-wrap svg { color: var(--text-dim); flex-shrink: 0; }
+.search-input {
+  flex: 1; background: none; border: none; outline: none;
+  font-family: var(--sans); font-size: 1rem; color: var(--text);
+}
+.search-input::placeholder { color: var(--text-dim); }
+.search-results { max-height: 360px; overflow-y: auto; padding: 8px; }
+.search-result-item {
+  display: flex; align-items: center; gap: 12px;
+  padding: 10px 12px; border-radius: 8px; cursor: pointer;
+  text-decoration: none; color: var(--text);
+  transition: background .12s;
+}
+.search-result-item:hover { background: var(--bg2); }
+.search-result-icon { color: var(--text-dim); flex-shrink: 0; }
+.search-result-title { font-size: .9rem; font-weight: 500; }
+.search-result-meta  { font-size: .78rem; color: var(--text-muted); margin-top: 1px; }
+.search-empty { padding: 28px 18px; text-align: center; color: var(--text-dim); font-size: .88rem; }
+.search-hint  { padding: 8px 18px 12px; font-size: .75rem; color: var(--text-dim); }
+
+/* ── Mobile nav drawer ── */
+.nav-drawer {
+  display: none; position: fixed; inset: 0; z-index: 150;
+  background: var(--surface); flex-direction: column;
+  padding: 20px 24px; gap: 6px;
+  animation: fade-in .15s ease;
+}
+.nav-drawer.is-open { display: flex; }
+.nav-drawer-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 12px;
+}
+.nav-drawer-link {
+  font-family: var(--sans); font-size: 1.1rem;
+  color: var(--text-muted); text-decoration: none;
+  padding: 10px 4px; border-bottom: 1px solid var(--border);
+  transition: color .15s;
+}
+.nav-drawer-link:hover, .nav-drawer-link.active { color: var(--accent); }
+
+/* ── Footer ── */
+.footer {
+  border-top: 1px solid var(--border);
+  padding: 32px 28px;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 14px;
+  font-size: .8rem; color: var(--text-dim);
+  margin-top: 60px;
+}
+.footer-social { display: flex; gap: 8px; }
+.footer-social a {
+  width: 32px; height: 32px; border-radius: 7px;
+  border: 1px solid var(--border); background: var(--surface);
+  color: var(--text-muted); display: flex; align-items: center; justify-content: center;
+  text-decoration: none; transition: color .15s, border-color .15s;
+}
+.footer-social a:hover { color: var(--accent); border-color: var(--accent-mid); }
+
+@media (max-width: 720px) {
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+  .footer { flex-direction: column; align-items: flex-start; }
+}
+
+/* ── Hero ── */
+.hero {
+  min-height: calc(100vh - var(--nav-h));
+  display: grid;
+  grid-template-columns: 1fr 980px;
+  gap: 0;
+  align-items: center;
+  padding: 0 28px 0 28px;
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 55% 70% at 20% 50%, var(--accent-light) 0%, transparent 65%);
+  opacity: .55; pointer-events: none;
+}
+.hero-left {
+  position: relative; z-index: 1;
+  padding: 60px 48px 60px 0;
+}
+.hero-eyebrow {
+  font-family: var(--mono); font-size: .7rem; letter-spacing: .18em;
+  text-transform: uppercase; color: var(--accent-mid);
+  margin-bottom: 20px; display: flex; align-items: center; gap: 12px;
+  animation: fade-up .5s ease both;
+}
+.hero-eyebrow::before {
+  content: ''; display: block; width: 32px; height: 1px; background: var(--accent-mid);
+}
+.hero-title {
+  font-family: var(--serif); font-size: clamp(2.4rem, 5vw, 4.2rem);
+  font-weight: 400; color: var(--text);
+  line-height: 1.1; letter-spacing: -.02em;
+  animation: fade-up .55s .08s ease both;
+}
+.hero-title em { font-style: italic; color: var(--accent-mid); }
+.hero-desc {
+  font-size: clamp(.88rem, 1.4vw, 1rem);
+  color: var(--text-muted); max-width: 440px;
+  line-height: 1.85; margin-top: 20px;
+  animation: fade-up .55s .16s ease both;
+}
+.hero-actions {
+  display: flex; gap: 12px; flex-wrap: wrap; margin-top: 32px;
+  animation: fade-up .55s .24s ease both;
+}
+.btn-primary {
+  font-family: var(--mono); font-size: .75rem; letter-spacing: .06em;
+  text-transform: uppercase; text-decoration: none;
+  background: var(--accent); color: #fff;
+  padding: 11px 24px; border-radius: 8px;
+  transition: opacity .15s, transform .15s;
+  display: inline-block;
+}
+.btn-primary:hover { opacity: .88; transform: translateY(-1px); }
+.btn-ghost {
+  font-family: var(--mono); font-size: .75rem; letter-spacing: .06em;
+  text-transform: uppercase; text-decoration: none;
+  border: 1px solid var(--border); color: var(--text-muted);
+  padding: 11px 24px; border-radius: 8px;
+  transition: color .15s, border-color .15s, transform .15s;
+  display: inline-block;
+}
+.btn-ghost:hover { color: var(--accent); border-color: var(--accent-mid); transform: translateY(-1px); }
+
+/* ── Hero slideshow ── */
+.hero-slideshow-wrap {
+  position: relative; height: calc(100vh - var(--nav-h));
+  display: flex; align-items: center; justify-content: center;
+  padding: 32px 0 32px 16px;
+}
+.hero-slideshow {
+  position: relative;
+  width: 100%; max-width: 780px;
+  height: min(380px, 70vh);
+  border-radius: 16px; overflow: hidden;
+  box-shadow: 0 32px 80px rgba(0,0,0,.18), 0 8px 24px rgba(0,0,0,.10);
+  flex-shrink: 0;
+  animation: fade-up .6s .3s ease both;
+}
+.hero-slide {
+  position: absolute; inset: 0;
+  opacity: 0;
+  transition: opacity .9s ease;
+}
+.hero-slide.active { opacity: 1; }
+.hero-slide img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+.hero-slide-caption {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 32px 18px 18px;
+  background: linear-gradient(to top, rgba(0,0,0,.6) 0%, transparent 100%);
+  font-size: .75rem; color: rgba(255,255,255,.8);
+  font-family: var(--sans);
+  opacity: 0; transition: opacity .3s ease;
+}
+.hero-slideshow:hover .hero-slide-caption { opacity: 1; }
+
+/* Dot indicators */
+.hero-slide-dots {
+  position: absolute; bottom: 14px; left: 50%; transform: translateX(-50%);
+  display: flex; gap: 5px; z-index: 2;
+}
+.hero-slide-dot {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: rgba(255,255,255,.35);
+  transition: background .3s, transform .3s;
+  cursor: pointer; border: none; padding: 0;
+}
+.hero-slide-dot.active {
+  background: rgba(255,255,255,.9);
+  transform: scale(1.3);
+}
+
+/* Corner accent mark */
+.hero-slideshow::after {
+  content: '';
+  position: absolute; top: -1px; right: -1px;
+  width: 60px; height: 60px;
+  background: var(--bg);
+  clip-path: polygon(100% 0, 0 0, 100% 100%);
+  border-radius: 0 16px 0 0;
+  opacity: .6; pointer-events: none;
+}
+
+/* ── Featured strip ── */
+.featured {
+  padding: 60px 28px;
+  border-top: 1px solid var(--border);
+}
+.section-label {
+  font-family: var(--mono); font-size: .68rem; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--text-dim);
+  margin-bottom: 28px; display: flex; align-items: center; gap: 12px;
+}
+.section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3px;
+}
+.featured-item {
+  aspect-ratio: 4/3; overflow: hidden; position: relative;
+  background: var(--bg2);
+}
+.featured-item img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform .5s ease;
+  display: block;
+}
+.featured-item:hover img { transform: scale(1.04); }
+.featured-item-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,.55) 0%, transparent 50%);
+  opacity: 0; transition: opacity .3s ease;
+  display: flex; align-items: flex-end; padding: 16px;
+}
+.featured-item:hover .featured-item-overlay { opacity: 1; }
+.featured-item-caption {
+  font-size: .78rem; color: rgba(255,255,255,.9);
+  font-family: var(--sans);
+}
+
+/* ── About strip ── */
+.about-strip {
+  padding: 60px 28px;
+  border-top: 1px solid var(--border);
+  display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
+  align-items: center;
+}
+.about-text h2 {
+  font-family: var(--serif); font-size: 1.8rem; font-weight: 400;
+  color: var(--text); margin-bottom: 16px; line-height: 1.25;
+}
+.about-text h2 em { font-style: italic; color: var(--accent-mid); }
+.about-text p {
+  font-size: .92rem; color: var(--text-muted); line-height: 1.85; margin-bottom: 10px;
+}
+.about-stats {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+}
+.stat-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 10px; padding: 20px;
+}
+.stat-num {
+  font-family: var(--serif); font-size: 2rem; font-weight: 400;
+  color: var(--accent); display: block; margin-bottom: 4px;
+}
+.stat-label { font-size: .78rem; color: var(--text-dim); font-family: var(--mono); letter-spacing: .05em; }
+
+@media (max-width: 1024px) {
+  .hero { grid-template-columns: 1fr 480px; }
+  .hero-slideshow { max-width: 420px; }
+}
+@media (max-width: 820px) {
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding-top: 48px; padding-bottom: 0;
+  }
+  .hero-left { padding: 0 0 32px; }
+  .hero-slideshow-wrap {
+    height: 300px; padding: 0 0 48px;
+    justify-content: flex-start;
+  }
+  .hero-slideshow { max-width: 100%; height: 260px; border-radius: 12px; }
+  .about-strip { grid-template-columns: 1fr; gap: 32px; }
+  .featured-grid { grid-template-columns: 1fr 1fr; }
+  .featured-grid .featured-item:last-child { display: none; }
+}
+@media (max-width: 560px) {
+  .hero { padding: 36px 18px 0; }
+  .featured { padding: 40px 18px; }
+  .about-strip { padding: 40px 18px; }
+  .featured-grid { grid-template-columns: 1fr; }
+  .featured-grid .featured-item:last-child { display: block; }
+}
+
+  </style>
+</head>
+<body>
+
+
+<nav class="nav">
+  <a class="nav-brand" href="index.html">Overwritten <em>Memories</em></a>
+  <div class="nav-links"><a class="nav-link active" href="index.html">Home</a>
+<a class="nav-link" href="photography.html">Photography</a>
+<a class="nav-link" href="blog.html">Blog</a>
+</div>
+  <div class="nav-actions">
+    <button class="nav-btn" id="search-btn" aria-label="Search"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+    <button class="nav-btn" id="theme-btn" aria-label="Toggle theme"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+    <button class="nav-btn nav-hamburger" id="hamburger-btn" aria-label="Menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+  </div>
+</nav>
+
+<!-- Mobile drawer -->
+<div class="nav-drawer" id="nav-drawer">
+  <div class="nav-drawer-header">
+    <a class="nav-brand" href="index.html">Overwritten <em>Memories</em></a>
+    <button class="nav-btn" id="drawer-close" aria-label="Close"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+  </div>
+  <a class="nav-drawer-link" href="index.html">Home</a>
+<a class="nav-drawer-link" href="photography.html">Photography</a>
+<a class="nav-drawer-link" href="blog.html">Blog</a>
+
+</div>
+
+<!-- Search overlay -->
+<div class="search-overlay" id="search-overlay">
+  <div class="search-box">
+    <div class="search-input-wrap">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input class="search-input" id="search-input" type="text"
+             placeholder="Search photos, posts, tags…" autocomplete="off">
+    </div>
+    <div class="search-results" id="search-results">
+      <p class="search-empty">Start typing to search…</p>
+    </div>
+    <div class="search-hint">Press <kbd>Esc</kbd> to close · <kbd>⌘K</kbd> to open</div>
+  </div>
+</div>
+
+
+<main>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-left">
+      <div class="hero-eyebrow">light, shadow &amp; the life between</div>
+      <h1 class="hero-title">Overwritten <em>Memories</em></h1>
+      <p class="hero-desc">A personal photography blog - moments collected from roads taken and roads imagined.</p>
+      <div class="hero-actions">
+        <a class="btn-primary" href="photography.html">View Photography</a>
+        <a class="btn-ghost"   href="blog.html">Read the Blog</a>
+      </div>
+    </div>
+    
+  <div class="hero-slideshow-wrap">
+    <div class="hero-slideshow" id="hero-slideshow" data-interval="3000">
+      
+        <div class="hero-slide active">
+          <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_12_mkmf44.jpg" alt="Time" loading="eager">
+          <div class="hero-slide-caption">Time</div>
+        </div>
+        <div class="hero-slide">
+          <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_01_aw80fe.jpg" alt="Cityscape | Kolkata" loading="eager">
+          <div class="hero-slide-caption">Cityscape | Kolkata</div>
+        </div>
+        <div class="hero-slide">
+          <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_02_grzalg.jpg" alt="What life is all about" loading="lazy">
+          <div class="hero-slide-caption">What life is all about</div>
+        </div>
+        <div class="hero-slide">
+          <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_17_itpsly.jpg" alt="Rides" loading="lazy">
+          <div class="hero-slide-caption">Rides</div>
+        </div>
+        <div class="hero-slide">
+          <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_55_oqvvpn.jpg" alt="Landscape | Bhutan" loading="lazy">
+          <div class="hero-slide-caption">Landscape | Bhutan</div>
+        </div>
+        <div class="hero-slide">
+          <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_47_mctvyp.jpg" alt="Journey for life" loading="lazy">
+          <div class="hero-slide-caption">Journey for life</div>
+        </div>
+        <div class="hero-slide">
+          <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_60_nz5ior.jpg" alt="Pattern" loading="lazy">
+          <div class="hero-slide-caption">Pattern</div>
+        </div>
+        <div class="hero-slide">
+          <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_59_doyeki.jpg" alt="Don&#x27;t worry, be happy" loading="lazy">
+          <div class="hero-slide-caption">Don&#x27;t worry, be happy</div>
+        </div>
+      <div class="hero-slide-dots"><button class="hero-slide-dot active" aria-label="Slide 1"></button><button class="hero-slide-dot" aria-label="Slide 2"></button><button class="hero-slide-dot" aria-label="Slide 3"></button><button class="hero-slide-dot" aria-label="Slide 4"></button><button class="hero-slide-dot" aria-label="Slide 5"></button><button class="hero-slide-dot" aria-label="Slide 6"></button><button class="hero-slide-dot" aria-label="Slide 7"></button><button class="hero-slide-dot" aria-label="Slide 8"></button></div>
+    </div>
+  </div>
+  </section>
+
+  <!-- Featured photos -->
+  <section class="featured">
+    <div class="section-label">Recent Work</div>
+    <div class="featured-grid">
+      <div class="featured-item">
+        <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_44_nuzxei.jpg" alt="Photo 44 nuzxei" loading="lazy">
+        <div class="featured-item-overlay">
+          <span class="featured-item-caption">Photo 44 nuzxei</span>
+        </div>
+      </div>
+      <div class="featured-item">
+        <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_51_gl0m5n.jpg" alt="Photo 51 gl0m5n" loading="lazy">
+        <div class="featured-item-overlay">
+          <span class="featured-item-caption">Photo 51 gl0m5n</span>
+        </div>
+      </div>
+      <div class="featured-item">
+        <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_32_ztwmds.jpg" alt="Photo 32 ztwmds" loading="lazy">
+        <div class="featured-item-overlay">
+          <span class="featured-item-caption">Photo 32 ztwmds</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About strip -->
+  <section class="about-strip">
+    <div class="about-text">
+      <h2>Collecting <em>light</em><br>one frame at a time</h2>
+      <p>A personal photography blog - moments collected from roads taken and roads imagined.</p>
+      <p style="margin-top:20px">
+        <a class="btn-ghost" href="photography.html">Explore the archive →</a>
+      </p>
+    </div>
+    <div class="about-stats">
+      <div class="stat-card">
+        <span class="stat-num">65</span>
+        <span class="stat-label">Photographs</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num">1</span>
+        <span class="stat-label">Blog posts</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num">0</span>
+        <span class="stat-label">Categories</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num">∞</span>
+        <span class="stat-label">Rolls to shoot</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+
+<footer class="footer">
+  <span>All images © Arnab Laha. All rights reserved.</span>
+  <div class="footer-social"><a href="https://github.com/alaha999" target="_blank" rel="noopener" aria-label="GitHub"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg></a>
+<a href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+</div>
+</footer>
+
+
+<script>window.SEARCH_INDEX = [{"title": "Photo 44 nuzxei", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 51 gl0m5n", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 32 ztwmds", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 61 kubbzv", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 11 yl2taw", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 14 euxgpb", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 12 mkmf44", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 42 hollbw", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 15 omzgej", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 22 wixizg", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 49 earw1m", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 57 gucgx1", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 60 nz5ior", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 03 lq3xth", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 13 fhqimb", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 41 u94dj7", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 67 qahexk", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 28 og8it7", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 48 ij8ef9", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 10 qv2wyu", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 34 k9ydqa", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 02 grzalg", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 54 gl9n2q", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 31 wqoxbh", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 52 trhbez", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 63 yycojk", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 01 aw80fe", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 21 bnnkdq", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 17 itpsly", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 38 rgcxvy", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 24 wswu0q", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 46 n8tntm", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 26 crdlvl", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 40 fswqh4", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 58 loxbye", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 37 rcvtai", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 04 zwwsix", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 43 apf1kn", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 05 xh0fc3", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 27 replne", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 08 slc3vn", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 09 vyof3r", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 33 szhxiv", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 56 grw62j", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 55 oqvvpn", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 65 w1jdhv", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 66 xpv8o8", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 20 kabnuf", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 53 gxstyj", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 30 v69wop", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 25 oati23", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 50 lmdio4", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 16 c9xtxb", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 45 xegubj", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 39 b5wsve", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 19 lmpeiz", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 35 ggibbh", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 18 k6tr8i", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 06 lf2uy4", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 59 doyeki", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 47 mctvyp", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 23 sylrwp", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 07 tedl9l", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 64 br4ujy", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 36 d5tm8m", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Train journeys", "href": "storage/blogs/blog1.html", "tags": ["film", "journeys"], "meta": "16-01-2022", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"/><polyline points=\"14 2 14 8 20 8\"/></svg>"}];</script>
+
+<script>
+// ── Theme toggle ──
+(function() {
+  var html = document.documentElement;
+  var btn  = document.getElementById('theme-btn');
+  if (!btn) return;
+  function sync() {
+    var dark = html.getAttribute('data-theme') === 'dark';
+    btn.innerHTML = dark
+      ? '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>'
+      : '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+    btn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+  }
+  btn.addEventListener('click', function() {
+    var next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+    sync();
+  });
+  var saved = localStorage.getItem('theme');
+  if (saved) { html.setAttribute('data-theme', saved); }
+  sync();
+})();
+
+// ── Search ──
+(function() {
+  var overlay = document.getElementById('search-overlay');
+  var input   = document.getElementById('search-input');
+  var results = document.getElementById('search-results');
+  var openBtn = document.getElementById('search-btn');
+  if (!overlay) return;
+
+  function open() { overlay.classList.add('is-open'); setTimeout(function(){ input && input.focus(); }, 50); }
+  function close() { overlay.classList.remove('is-open'); if(input) input.value=''; renderResults(''); }
+
+  if (openBtn) openBtn.addEventListener('click', open);
+  overlay.addEventListener('click', function(e) { if (e.target === overlay) close(); });
+  document.addEventListener('keydown', function(e) {
+    if ((e.metaKey || e.ctrlKey) && e.key === 'k') { e.preventDefault(); open(); }
+    if (e.key === 'Escape') close();
+  });
+
+  function renderResults(q) {
+    if (!results) return;
+    var items = (window.SEARCH_INDEX || []);
+    var filtered = q.length < 2 ? [] : items.filter(function(it) {
+      return (it.title + ' ' + (it.tags || []).join(' ') + ' ' + (it.meta || '')).toLowerCase().indexOf(q.toLowerCase()) > -1;
+    });
+    if (q.length < 2) {
+      results.innerHTML = '<p class="search-empty">Start typing to search…</p>';
+      return;
+    }
+    if (!filtered.length) {
+      results.innerHTML = '<p class="search-empty">No results for <strong>' + q + '</strong></p>';
+      return;
+    }
+    results.innerHTML = filtered.map(function(it) {
+      return '<a class="search-result-item" href="' + it.href + '">'
+        + '<span class="search-result-icon">' + (it.icon || '') + '</span>'
+        + '<span><div class="search-result-title">' + it.title + '</div>'
+        + '<div class="search-result-meta">' + (it.meta || '') + '</div></span></a>';
+    }).join('');
+  }
+
+  if (input) input.addEventListener('input', function() { renderResults(this.value); });
+  renderResults('');
+})();
+
+// ── Mobile drawer ──
+(function() {
+  var btn    = document.getElementById('hamburger-btn');
+  var drawer = document.getElementById('nav-drawer');
+  var close  = document.getElementById('drawer-close');
+  if (!btn || !drawer) return;
+  btn.addEventListener('click', function()   { drawer.classList.add('is-open'); });
+  if (close) close.addEventListener('click', function() { drawer.classList.remove('is-open'); });
+})();
+</script>
+
+
+<script>
+(function() {
+  var slides   = document.querySelectorAll('.hero-slide');
+  var dots     = document.querySelectorAll('.hero-slide-dot');
+  var interval = parseInt(document.getElementById('hero-slideshow')
+                          ? document.getElementById('hero-slideshow').getAttribute('data-interval') : '3500', 10) || 3500;
+  if (!slides.length) return;
+
+  var current = 0;
+
+  function goTo(n) {
+    slides[current].classList.remove('active');
+    dots[current] && dots[current].classList.remove('active');
+    current = (n + slides.length) % slides.length;
+    slides[current].classList.add('active');
+    dots[current] && dots[current].classList.add('active');
+  }
+
+  // Dot clicks
+  dots.forEach(function(dot, i) {
+    dot.addEventListener('click', function() { goTo(i); resetTimer(); });
+  });
+
+  // Auto-advance
+  var timer = setInterval(function() { goTo(current + 1); }, interval);
+  function resetTimer() { clearInterval(timer); timer = setInterval(function() { goTo(current + 1); }, interval); }
+
+  // Pause on hover
+  var wrap = document.getElementById('hero-slideshow');
+  if (wrap) {
+    wrap.addEventListener('mouseenter', function() { clearInterval(timer); });
+    wrap.addEventListener('mouseleave', function() { timer = setInterval(function() { goTo(current + 1); }, interval); });
+  }
+})();
 </script>
 
 </body>

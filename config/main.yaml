@@ -1,0 +1,77 @@
+site:
+  title:       "Overwritten Memories"
+  author:      "Arnab Laha"
+  tagline:     "light, shadow & the life between"
+  description: "A personal photography blog - moments collected from roads taken and roads imagined."
+  base_url:    ""          # leave empty for local / GitHub Pages root
+  output_dir:  "./"
+
+nav:
+  - label: "Home"
+    href:  "index.html"
+  - label: "Photography"
+    href:  "photography.html"
+  - label: "Blog"
+    href:  "blog.html"
+
+footer:
+  note: "All images © Arnab Laha. All rights reserved."
+  social:
+    - label: "GitHub"
+      href:  "https://github.com/alaha999"
+      icon:  "github"
+    - label: "Instagram"
+      href:  "https://instagram.com/"
+      icon:  "instagram"
+
+theme:
+  default_mode: "light"          # "light" | "dark"
+  light:
+    bg:           "#f5f0eb"       # warm cream
+    bg2:          "#ede8e1"       # slightly darker cream
+    surface:      "#faf7f4"       # card / nav surface
+    border:       "#ddd5c8"
+    text:         "#2c2520"       # deep warm brown
+    text_muted:   "#6b5e52"
+    text_dim:     "#9e8e82"
+    accent:       "#7a5c44"       # coffee brown
+    accent_mid:   "#a07858"       # warm tan
+    accent_light: "#e8ddd3"
+  dark:
+    bg:           "#1a1614"
+    bg2:          "#231f1c"
+    surface:      "#2a2521"
+    border:       "#3d3530"
+    text:         "#f0ebe4"
+    text_muted:   "#b09a8a"
+    text_dim:     "#6b5a50"
+    accent:       "#c49a6c"
+    accent_mid:   "#a07858"
+    accent_light: "#3d2e22"
+
+# ── Hero slideshow (right side of landing page) ───────────────────────────
+# All paths are relative to output/ (same as photography image paths).
+# interval_ms : milliseconds between slide transitions
+# show        : set to false to hide the slideshow entirely
+
+hero_slideshow:
+  show:        true
+  interval_ms: 3000
+  images:
+    - src: "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_12_mkmf44.jpg"
+      alt: "Time"
+    - src: "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_01_aw80fe.jpg"
+      alt: "Cityscape | Kolkata"
+    - src: "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_02_grzalg.jpg"
+      alt: "What life is all about"
+    - src: "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_17_itpsly.jpg"
+      alt: "Rides"
+    - src: "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_55_oqvvpn.jpg"
+      alt: "Landscape | Bhutan"
+    - src: "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_47_mctvyp.jpg"
+      alt: "Journey for life"
+    - src: "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_60_nz5ior.jpg"
+      alt: "Pattern"
+    - src: "https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_59_doyeki.jpg"
+      alt: "Don't worry, be happy"
+      

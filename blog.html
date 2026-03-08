@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — Overwritten Memories</title>
+  <meta name="description" content="Thoughts on photography, travel, and the quiet art of paying attention. Some long, some short - that&#x27;s life!
+">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg: #f5f0eb;
+  --bg2: #ede8e1;
+  --surface: #faf7f4;
+  --border: #ddd5c8;
+  --text: #2c2520;
+  --text-muted: #6b5e52;
+  --text-dim: #9e8e82;
+  --accent: #7a5c44;
+  --accent-mid: #a07858;
+  --accent-light: #e8ddd3;
+}
+[data-theme=dark] {
+  --bg: #1a1614;
+  --bg2: #231f1c;
+  --surface: #2a2521;
+  --border: #3d3530;
+  --text: #f0ebe4;
+  --text-muted: #b09a8a;
+  --text-dim: #6b5a50;
+  --accent: #c49a6c;
+  --accent-mid: #a07858;
+  --accent-light: #3d2e22;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --max: 1400px;
+  --serif: 'Lora', 'Georgia', serif;
+  --sans:  'DM Sans', sans-serif;
+  --mono:  'JetBrains Mono', 'Fira Mono', monospace;
+  --nav-h: 58px;
+  --transition: background .25s ease, color .25s ease, border-color .25s ease;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--text);
+  transition: var(--transition);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg2); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent-mid); }
+
+/* ── Selection ── */
+::selection { background: var(--accent-light); color: var(--accent); }
+
+/* ── Animations ── */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(.96); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+
+/* ── Navigation ── */
+.nav {
+  position: sticky; top: 0; z-index: 100;
+  height: var(--nav-h);
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex; align-items: center;
+  padding: 0 28px;
+  gap: 0;
+  transition: var(--transition);
+}
+.nav-brand {
+  font-family: var(--serif); font-size: 1.15rem; font-weight: 400;
+  color: var(--text); text-decoration: none; letter-spacing: .01em;
+  white-space: nowrap; margin-right: auto;
+}
+.nav-brand em { font-style: italic; color: var(--accent-mid); }
+.nav-links {
+  display: flex; align-items: center; gap: 2px; margin-right: 12px;
+}
+.nav-link {
+  font-family: var(--sans); font-size: .82rem; font-weight: 400;
+  color: var(--text-muted); text-decoration: none; letter-spacing: .04em;
+  padding: 6px 14px; border-radius: 6px;
+  transition: color .15s, background .15s;
+}
+.nav-link:hover  { color: var(--text); background: var(--bg2); }
+.nav-link.active { color: var(--accent); font-weight: 500; }
+.nav-actions { display: flex; align-items: center; gap: 4px; }
+.nav-btn {
+  width: 34px; height: 34px; border-radius: 7px;
+  border: 1px solid transparent; background: none; cursor: pointer;
+  color: var(--text-muted); display: flex; align-items: center; justify-content: center;
+  transition: color .15s, background .15s, border-color .15s;
+}
+.nav-btn:hover { color: var(--text); background: var(--bg2); border-color: var(--border); }
+.nav-hamburger { display: none; }
+
+/* ── Search overlay ── */
+.search-overlay {
+  display: none; position: fixed; inset: 0; z-index: 200;
+  background: rgba(0,0,0,.5); backdrop-filter: blur(4px);
+  align-items: flex-start; justify-content: center;
+  padding-top: 80px;
+}
+.search-overlay.is-open { display: flex; animation: fade-in .15s ease; }
+.search-box {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 14px; width: min(600px, 92vw);
+  box-shadow: 0 20px 60px rgba(0,0,0,.25);
+  overflow: hidden; animation: scale-in .18s ease;
+}
+.search-input-wrap {
+  display: flex; align-items: center; gap: 10px;
+  padding: 14px 18px; border-bottom: 1px solid var(--border);
+}
+.search-input-wrap svg { color: var(--text-dim); flex-shrink: 0; }
+.search-input {
+  flex: 1; background: none; border: none; outline: none;
+  font-family: var(--sans); font-size: 1rem; color: var(--text);
+}
+.search-input::placeholder { color: var(--text-dim); }
+.search-results { max-height: 360px; overflow-y: auto; padding: 8px; }
+.search-result-item {
+  display: flex; align-items: center; gap: 12px;
+  padding: 10px 12px; border-radius: 8px; cursor: pointer;
+  text-decoration: none; color: var(--text);
+  transition: background .12s;
+}
+.search-result-item:hover { background: var(--bg2); }
+.search-result-icon { color: var(--text-dim); flex-shrink: 0; }
+.search-result-title { font-size: .9rem; font-weight: 500; }
+.search-result-meta  { font-size: .78rem; color: var(--text-muted); margin-top: 1px; }
+.search-empty { padding: 28px 18px; text-align: center; color: var(--text-dim); font-size: .88rem; }
+.search-hint  { padding: 8px 18px 12px; font-size: .75rem; color: var(--text-dim); }
+
+/* ── Mobile nav drawer ── */
+.nav-drawer {
+  display: none; position: fixed; inset: 0; z-index: 150;
+  background: var(--surface); flex-direction: column;
+  padding: 20px 24px; gap: 6px;
+  animation: fade-in .15s ease;
+}
+.nav-drawer.is-open { display: flex; }
+.nav-drawer-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 12px;
+}
+.nav-drawer-link {
+  font-family: var(--sans); font-size: 1.1rem;
+  color: var(--text-muted); text-decoration: none;
+  padding: 10px 4px; border-bottom: 1px solid var(--border);
+  transition: color .15s;
+}
+.nav-drawer-link:hover, .nav-drawer-link.active { color: var(--accent); }
+
+/* ── Footer ── */
+.footer {
+  border-top: 1px solid var(--border);
+  padding: 32px 28px;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 14px;
+  font-size: .8rem; color: var(--text-dim);
+  margin-top: 60px;
+}
+.footer-social { display: flex; gap: 8px; }
+.footer-social a {
+  width: 32px; height: 32px; border-radius: 7px;
+  border: 1px solid var(--border); background: var(--surface);
+  color: var(--text-muted); display: flex; align-items: center; justify-content: center;
+  text-decoration: none; transition: color .15s, border-color .15s;
+}
+.footer-social a:hover { color: var(--accent); border-color: var(--accent-mid); }
+
+@media (max-width: 720px) {
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+  .footer { flex-direction: column; align-items: flex-start; }
+}
+
+/* ── Blog page ── */
+.blog-page { padding: 44px 18px 60px; max-width: var(--max); margin: 0 auto; animation: fade-up .5s ease both; }
+
+.page-eyebrow {
+  font-family: var(--mono); font-size: .68rem; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--accent-mid);
+  margin-bottom: 10px; display: flex; align-items: center; gap: 12px;
+}
+.page-eyebrow::before { content: ''; display: block; width: 28px; height: 1px; background: var(--accent-mid); }
+.page-title {
+  font-family: var(--serif); font-size: 2.2rem; font-weight: 400;
+  color: var(--text); letter-spacing: -.01em; margin-bottom: 10px;
+}
+.page-intro {
+  font-size: .92rem; color: var(--text-muted); max-width: 520px;
+  line-height: 1.85; margin-bottom: 36px;
+}
+
+/* ── Collapse controls toolbar ── */
+.blog-toolbar {
+  display: flex; justify-content: flex-end; margin-bottom: 20px; gap: 8px;
+}
+.btn-ctrl {
+  font-family: var(--mono); font-size: .68rem; letter-spacing: .06em;
+  text-transform: uppercase;
+  border: 1px solid var(--border); background: var(--surface);
+  color: var(--text-dim); padding: 6px 14px; border-radius: 7px;
+  cursor: pointer; display: inline-flex; align-items: center; gap: 6px;
+  transition: color .15s, border-color .15s;
+}
+.btn-ctrl:hover { color: var(--accent-mid); border-color: var(--accent-mid); }
+.btn-ctrl svg { width: 12px; height: 12px; transition: transform .2s; }
+
+/* ── Blog grid ── */
+.blog-grid {
+  display: grid;
+  gap: 14px;
+  /* columns set inline */
+}
+
+/* ── Blog card ── */
+.blog-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 12px; overflow: hidden;
+  transition: border-color .2s, transform .2s, box-shadow .2s;
+}
+.blog-card:hover {
+  border-color: var(--accent-mid);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,.08);
+}
+
+.blog-card-header {
+  padding: 18px 20px 0;
+  cursor: pointer; user-select: none;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.blog-card-top {
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 10px;
+}
+.blog-card-title {
+  font-family: var(--serif); font-size: 1.05rem; font-weight: 400;
+  color: var(--text); line-height: 1.35; flex: 1;
+}
+.blog-card-toggle {
+  width: 26px; height: 26px; border-radius: 6px; flex-shrink: 0;
+  background: var(--bg2); border: 1px solid var(--border);
+  color: var(--text-dim); display: flex; align-items: center; justify-content: center;
+  transition: background .15s, color .15s, transform .25s;
+}
+.blog-card-toggle svg { width: 13px; height: 13px; }
+.blog-card.is-collapsed .blog-card-toggle { transform: rotate(-90deg); }
+
+.blog-card-meta {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
+  padding-bottom: 14px;
+}
+.blog-date {
+  font-family: var(--mono); font-size: .68rem; color: var(--text-dim);
+  letter-spacing: .04em;
+}
+.blog-tag {
+  font-family: var(--mono); font-size: .62rem; letter-spacing: .05em;
+  text-transform: uppercase;
+  padding: 2px 8px; border-radius: 100px;
+  background: var(--accent-light); color: var(--accent);
+  border: 1px solid color-mix(in srgb, var(--accent) 20%, transparent);
+}
+
+/* ── Collapsible body ── */
+.blog-card-body {
+  overflow: hidden; max-height: 500px;
+  transition: max-height .35s ease, opacity .25s ease, padding .25s ease;
+  opacity: 1;
+  border-top: 1px solid var(--border);
+  padding: 16px 20px 20px;
+}
+.blog-card.is-collapsed .blog-card-body {
+  max-height: 0; opacity: 0; padding-top: 0; padding-bottom: 0;
+  border-top-color: transparent;
+}
+.blog-card-desc {
+  font-size: .88rem; color: var(--text-muted); line-height: 1.75;
+  margin-bottom: 14px;
+}
+.blog-read-link {
+  font-family: var(--mono); font-size: .7rem; letter-spacing: .05em;
+  color: var(--accent); text-decoration: none;
+  display: inline-flex; align-items: center; gap: 6px;
+  border-bottom: 1px solid transparent; transition: border-color .15s;
+}
+.blog-read-link:hover { border-color: var(--accent); }
+.blog-read-link svg { width: 11px; height: 11px; }
+
+@media (max-width: 720px) {
+  .blog-grid { grid-template-columns: 1fr 1fr !important; }
+}
+@media (max-width: 480px) {
+  .blog-grid { grid-template-columns: 1fr !important; }
+}
+
+  </style>
+</head>
+<body>
+
+
+<nav class="nav">
+  <a class="nav-brand" href="index.html">Overwritten <em>Memories</em></a>
+  <div class="nav-links"><a class="nav-link" href="index.html">Home</a>
+<a class="nav-link" href="photography.html">Photography</a>
+<a class="nav-link active" href="blog.html">Blog</a>
+</div>
+  <div class="nav-actions">
+    <button class="nav-btn" id="search-btn" aria-label="Search"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+    <button class="nav-btn" id="theme-btn" aria-label="Toggle theme"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+    <button class="nav-btn nav-hamburger" id="hamburger-btn" aria-label="Menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+  </div>
+</nav>
+
+<!-- Mobile drawer -->
+<div class="nav-drawer" id="nav-drawer">
+  <div class="nav-drawer-header">
+    <a class="nav-brand" href="index.html">Overwritten <em>Memories</em></a>
+    <button class="nav-btn" id="drawer-close" aria-label="Close"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+  </div>
+  <a class="nav-drawer-link" href="index.html">Home</a>
+<a class="nav-drawer-link" href="photography.html">Photography</a>
+<a class="nav-drawer-link active" href="blog.html">Blog</a>
+
+</div>
+
+<!-- Search overlay -->
+<div class="search-overlay" id="search-overlay">
+  <div class="search-box">
+    <div class="search-input-wrap">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input class="search-input" id="search-input" type="text"
+             placeholder="Search photos, posts, tags…" autocomplete="off">
+    </div>
+    <div class="search-results" id="search-results">
+      <p class="search-empty">Start typing to search…</p>
+    </div>
+    <div class="search-hint">Press <kbd>Esc</kbd> to close · <kbd>⌘K</kbd> to open</div>
+  </div>
+</div>
+
+
+<main class="blog-page">
+  <div class="page-eyebrow">Written Notes</div>
+  <h1 class="page-title">Blog</h1>
+  <p class="page-intro">Thoughts on photography, travel, and the quiet art of paying attention. Some long, some short - that&#x27;s life!</p>
+
+  
+  <div class="blog-toolbar">
+    <button id="btn-collapse-all" class="btn-ctrl">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="17 11 12 6 7 11"/><polyline points="17 18 12 13 7 18"/></svg><span class="ctrl-label">Collapse All</span>
+    </button>
+  </div>
+
+  <div class="blog-grid" style="grid-template-columns: repeat(4, 1fr);">
+    
+    <div class="blog-card">
+      <div class="blog-card-header">
+        <div class="blog-card-top">
+          <h2 class="blog-card-title">Train journeys</h2>
+          <span class="blog-card-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+        </div>
+        <div class="blog-card-meta">
+          <span class="blog-date">16-01-2022</span>
+          <span class="blog-tag">film</span><span class="blog-tag">journeys</span>
+        </div>
+      </div>
+      <div class="blog-card-body">
+        <p class="blog-card-desc">I was lucky to travel to many places in India by train. Those long journeys, conversations with unknown people, sharing the same agony of missing trains, and the happiness of grabbing a window seat significantly impacted me to experience the struggle of living.</p>
+        <a class="blog-read-link" href="storage/blogs/blog1.html" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Read on GitHub →
+        </a>
+      </div>
+    </div>
+  </div>
+</main>
+
+
+<footer class="footer">
+  <span>All images © Arnab Laha. All rights reserved.</span>
+  <div class="footer-social"><a href="https://github.com/alaha999" target="_blank" rel="noopener" aria-label="GitHub"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg></a>
+<a href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+</div>
+</footer>
+
+
+<script>window.SEARCH_INDEX = [{"title": "Photo 44 nuzxei", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 51 gl0m5n", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 32 ztwmds", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 61 kubbzv", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 11 yl2taw", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 14 euxgpb", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 12 mkmf44", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 42 hollbw", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 15 omzgej", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 22 wixizg", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 49 earw1m", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 57 gucgx1", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 60 nz5ior", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 03 lq3xth", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 13 fhqimb", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 41 u94dj7", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 67 qahexk", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 28 og8it7", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 48 ij8ef9", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 10 qv2wyu", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 34 k9ydqa", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 02 grzalg", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 54 gl9n2q", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 31 wqoxbh", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 52 trhbez", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 63 yycojk", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 01 aw80fe", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 21 bnnkdq", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 17 itpsly", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 38 rgcxvy", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 24 wswu0q", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 46 n8tntm", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 26 crdlvl", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 40 fswqh4", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 58 loxbye", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 37 rcvtai", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 04 zwwsix", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 43 apf1kn", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 05 xh0fc3", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 27 replne", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 08 slc3vn", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 09 vyof3r", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 33 szhxiv", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 56 grw62j", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 55 oqvvpn", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 65 w1jdhv", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 66 xpv8o8", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 20 kabnuf", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 53 gxstyj", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 30 v69wop", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 25 oati23", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 50 lmdio4", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 16 c9xtxb", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 45 xegubj", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 39 b5wsve", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 19 lmpeiz", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 35 ggibbh", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 18 k6tr8i", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 06 lf2uy4", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 59 doyeki", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 47 mctvyp", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 23 sylrwp", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 07 tedl9l", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 64 br4ujy", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 36 d5tm8m", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Train journeys", "href": "storage/blogs/blog1.html", "tags": ["film", "journeys"], "meta": "16-01-2022", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"/><polyline points=\"14 2 14 8 20 8\"/></svg>"}];</script>
+
+<script>
+// ── Theme toggle ──
+(function() {
+  var html = document.documentElement;
+  var btn  = document.getElementById('theme-btn');
+  if (!btn) return;
+  function sync() {
+    var dark = html.getAttribute('data-theme') === 'dark';
+    btn.innerHTML = dark
+      ? '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>'
+      : '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+    btn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+  }
+  btn.addEventListener('click', function() {
+    var next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+    sync();
+  });
+  var saved = localStorage.getItem('theme');
+  if (saved) { html.setAttribute('data-theme', saved); }
+  sync();
+})();
+
+// ── Search ──
+(function() {
+  var overlay = document.getElementById('search-overlay');
+  var input   = document.getElementById('search-input');
+  var results = document.getElementById('search-results');
+  var openBtn = document.getElementById('search-btn');
+  if (!overlay) return;
+
+  function open() { overlay.classList.add('is-open'); setTimeout(function(){ input && input.focus(); }, 50); }
+  function close() { overlay.classList.remove('is-open'); if(input) input.value=''; renderResults(''); }
+
+  if (openBtn) openBtn.addEventListener('click', open);
+  overlay.addEventListener('click', function(e) { if (e.target === overlay) close(); });
+  document.addEventListener('keydown', function(e) {
+    if ((e.metaKey || e.ctrlKey) && e.key === 'k') { e.preventDefault(); open(); }
+    if (e.key === 'Escape') close();
+  });
+
+  function renderResults(q) {
+    if (!results) return;
+    var items = (window.SEARCH_INDEX || []);
+    var filtered = q.length < 2 ? [] : items.filter(function(it) {
+      return (it.title + ' ' + (it.tags || []).join(' ') + ' ' + (it.meta || '')).toLowerCase().indexOf(q.toLowerCase()) > -1;
+    });
+    if (q.length < 2) {
+      results.innerHTML = '<p class="search-empty">Start typing to search…</p>';
+      return;
+    }
+    if (!filtered.length) {
+      results.innerHTML = '<p class="search-empty">No results for <strong>' + q + '</strong></p>';
+      return;
+    }
+    results.innerHTML = filtered.map(function(it) {
+      return '<a class="search-result-item" href="' + it.href + '">'
+        + '<span class="search-result-icon">' + (it.icon || '') + '</span>'
+        + '<span><div class="search-result-title">' + it.title + '</div>'
+        + '<div class="search-result-meta">' + (it.meta || '') + '</div></span></a>';
+    }).join('');
+  }
+
+  if (input) input.addEventListener('input', function() { renderResults(this.value); });
+  renderResults('');
+})();
+
+// ── Mobile drawer ──
+(function() {
+  var btn    = document.getElementById('hamburger-btn');
+  var drawer = document.getElementById('nav-drawer');
+  var close  = document.getElementById('drawer-close');
+  if (!btn || !drawer) return;
+  btn.addEventListener('click', function()   { drawer.classList.add('is-open'); });
+  if (close) close.addEventListener('click', function() { drawer.classList.remove('is-open'); });
+})();
+</script>
+
+
+<script>
+(function() {
+  // ── Per-card toggle ──
+  document.querySelectorAll('.blog-card-header').forEach(function(header) {
+    header.addEventListener('click', function() {
+      var card = header.closest('.blog-card');
+      card.classList.toggle('is-collapsed');
+      syncCtrlBtn();
+    });
+  });
+
+  // ── Collapse-all / Expand-all ──
+  var ctrlBtn = document.getElementById('btn-collapse-all');
+  if (ctrlBtn) {
+    ctrlBtn.addEventListener('click', function() {
+      var cards       = document.querySelectorAll('.blog-card');
+      var allCollapsed = Array.from(cards).every(function(c) { return c.classList.contains('is-collapsed'); });
+      cards.forEach(function(c) {
+        if (allCollapsed) c.classList.remove('is-collapsed');
+        else              c.classList.add('is-collapsed');
+      });
+      syncCtrlBtn();
+    });
+  }
+
+  function syncCtrlBtn() {
+    var ctrlBtn = document.getElementById('btn-collapse-all');
+    if (!ctrlBtn) return;
+    var cards        = document.querySelectorAll('.blog-card');
+    var allCollapsed = Array.from(cards).every(function(c) { return c.classList.contains('is-collapsed'); });
+    ctrlBtn.querySelector('.ctrl-label').textContent = allCollapsed ? 'Expand All' : 'Collapse All';
+    var icon = ctrlBtn.querySelector('svg');
+    if (icon) icon.style.transform = allCollapsed ? 'rotate(180deg)' : '';
+  }
+
+  syncCtrlBtn();
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photography — Overwritten Memories</title>
+  <meta name="description" content="A collection of moments — street scenes, landscapes, and quiet corners caught between heartbeats. Shot mostly on film and the occasional digital frame.
+">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg: #f5f0eb;
+  --bg2: #ede8e1;
+  --surface: #faf7f4;
+  --border: #ddd5c8;
+  --text: #2c2520;
+  --text-muted: #6b5e52;
+  --text-dim: #9e8e82;
+  --accent: #7a5c44;
+  --accent-mid: #a07858;
+  --accent-light: #e8ddd3;
+}
+[data-theme=dark] {
+  --bg: #1a1614;
+  --bg2: #231f1c;
+  --surface: #2a2521;
+  --border: #3d3530;
+  --text: #f0ebe4;
+  --text-muted: #b09a8a;
+  --text-dim: #6b5a50;
+  --accent: #c49a6c;
+  --accent-mid: #a07858;
+  --accent-light: #3d2e22;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --max: 1400px;
+  --serif: 'Lora', 'Georgia', serif;
+  --sans:  'DM Sans', sans-serif;
+  --mono:  'JetBrains Mono', 'Fira Mono', monospace;
+  --nav-h: 58px;
+  --transition: background .25s ease, color .25s ease, border-color .25s ease;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--text);
+  transition: var(--transition);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg2); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent-mid); }
+
+/* ── Selection ── */
+::selection { background: var(--accent-light); color: var(--accent); }
+
+/* ── Animations ── */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(.96); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+
+/* ── Navigation ── */
+.nav {
+  position: sticky; top: 0; z-index: 100;
+  height: var(--nav-h);
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex; align-items: center;
+  padding: 0 28px;
+  gap: 0;
+  transition: var(--transition);
+}
+.nav-brand {
+  font-family: var(--serif); font-size: 1.15rem; font-weight: 400;
+  color: var(--text); text-decoration: none; letter-spacing: .01em;
+  white-space: nowrap; margin-right: auto;
+}
+.nav-brand em { font-style: italic; color: var(--accent-mid); }
+.nav-links {
+  display: flex; align-items: center; gap: 2px; margin-right: 12px;
+}
+.nav-link {
+  font-family: var(--sans); font-size: .82rem; font-weight: 400;
+  color: var(--text-muted); text-decoration: none; letter-spacing: .04em;
+  padding: 6px 14px; border-radius: 6px;
+  transition: color .15s, background .15s;
+}
+.nav-link:hover  { color: var(--text); background: var(--bg2); }
+.nav-link.active { color: var(--accent); font-weight: 500; }
+.nav-actions { display: flex; align-items: center; gap: 4px; }
+.nav-btn {
+  width: 34px; height: 34px; border-radius: 7px;
+  border: 1px solid transparent; background: none; cursor: pointer;
+  color: var(--text-muted); display: flex; align-items: center; justify-content: center;
+  transition: color .15s, background .15s, border-color .15s;
+}
+.nav-btn:hover { color: var(--text); background: var(--bg2); border-color: var(--border); }
+.nav-hamburger { display: none; }
+
+/* ── Search overlay ── */
+.search-overlay {
+  display: none; position: fixed; inset: 0; z-index: 200;
+  background: rgba(0,0,0,.5); backdrop-filter: blur(4px);
+  align-items: flex-start; justify-content: center;
+  padding-top: 80px;
+}
+.search-overlay.is-open { display: flex; animation: fade-in .15s ease; }
+.search-box {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 14px; width: min(600px, 92vw);
+  box-shadow: 0 20px 60px rgba(0,0,0,.25);
+  overflow: hidden; animation: scale-in .18s ease;
+}
+.search-input-wrap {
+  display: flex; align-items: center; gap: 10px;
+  padding: 14px 18px; border-bottom: 1px solid var(--border);
+}
+.search-input-wrap svg { color: var(--text-dim); flex-shrink: 0; }
+.search-input {
+  flex: 1; background: none; border: none; outline: none;
+  font-family: var(--sans); font-size: 1rem; color: var(--text);
+}
+.search-input::placeholder { color: var(--text-dim); }
+.search-results { max-height: 360px; overflow-y: auto; padding: 8px; }
+.search-result-item {
+  display: flex; align-items: center; gap: 12px;
+  padding: 10px 12px; border-radius: 8px; cursor: pointer;
+  text-decoration: none; color: var(--text);
+  transition: background .12s;
+}
+.search-result-item:hover { background: var(--bg2); }
+.search-result-icon { color: var(--text-dim); flex-shrink: 0; }
+.search-result-title { font-size: .9rem; font-weight: 500; }
+.search-result-meta  { font-size: .78rem; color: var(--text-muted); margin-top: 1px; }
+.search-empty { padding: 28px 18px; text-align: center; color: var(--text-dim); font-size: .88rem; }
+.search-hint  { padding: 8px 18px 12px; font-size: .75rem; color: var(--text-dim); }
+
+/* ── Mobile nav drawer ── */
+.nav-drawer {
+  display: none; position: fixed; inset: 0; z-index: 150;
+  background: var(--surface); flex-direction: column;
+  padding: 20px 24px; gap: 6px;
+  animation: fade-in .15s ease;
+}
+.nav-drawer.is-open { display: flex; }
+.nav-drawer-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 12px;
+}
+.nav-drawer-link {
+  font-family: var(--sans); font-size: 1.1rem;
+  color: var(--text-muted); text-decoration: none;
+  padding: 10px 4px; border-bottom: 1px solid var(--border);
+  transition: color .15s;
+}
+.nav-drawer-link:hover, .nav-drawer-link.active { color: var(--accent); }
+
+/* ── Footer ── */
+.footer {
+  border-top: 1px solid var(--border);
+  padding: 32px 28px;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 14px;
+  font-size: .8rem; color: var(--text-dim);
+  margin-top: 60px;
+}
+.footer-social { display: flex; gap: 8px; }
+.footer-social a {
+  width: 32px; height: 32px; border-radius: 7px;
+  border: 1px solid var(--border); background: var(--surface);
+  color: var(--text-muted); display: flex; align-items: center; justify-content: center;
+  text-decoration: none; transition: color .15s, border-color .15s;
+}
+.footer-social a:hover { color: var(--accent); border-color: var(--accent-mid); }
+
+@media (max-width: 720px) {
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+  .footer { flex-direction: column; align-items: flex-start; }
+}
+
+/* ── Photography page ── */
+.photo-page { padding: 44px 18px 60px; max-width: var(--max); margin: 0 auto; animation: fade-up .5s ease both; }
+
+.page-eyebrow {
+  font-family: var(--mono); font-size: .68rem; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--accent-mid);
+  margin-bottom: 10px; display: flex; align-items: center; gap: 12px;
+}
+.page-eyebrow::before { content: ''; display: block; width: 28px; height: 1px; background: var(--accent-mid); }
+.page-title {
+  font-family: var(--serif); font-size: 2.2rem; font-weight: 400;
+  color: var(--text); letter-spacing: -.01em; margin-bottom: 10px;
+}
+.page-intro {
+  font-size: .92rem; color: var(--text-muted); max-width: 520px;
+  line-height: 1.85; margin-bottom: 36px;
+}
+
+/* ── Controls row: tags + grid switcher ── */
+.photo-controls {
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 10px; margin-bottom: 20px;
+}
+
+/* ── Tag filter bar ── */
+.tag-bar {
+  display: flex; flex-wrap: wrap; gap: 7px; align-items: center;
+}
+.tag-btn {
+  font-family: var(--mono); font-size: .68rem; letter-spacing: .06em;
+  text-transform: uppercase;
+  border: 1px solid var(--border); background: var(--surface);
+  color: var(--text-dim); padding: 5px 13px; border-radius: 100px;
+  cursor: pointer; transition: color .15s, border-color .15s, background .15s;
+}
+.tag-btn:hover  { color: var(--accent-mid); border-color: var(--accent-mid); }
+.tag-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+/* ── Grid column switcher ── */
+.grid-switcher {
+  display: flex; align-items: center; gap: 4px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 8px; padding: 3px;
+  flex-shrink: 0;
+}
+.grid-btn {
+  font-family: var(--mono); font-size: .68rem; letter-spacing: .04em;
+  color: var(--text-dim); background: none; border: none;
+  padding: 5px 11px; border-radius: 5px; cursor: pointer;
+  transition: color .15s, background .15s;
+  display: flex; align-items: center; gap: 5px;
+}
+.grid-btn:hover { color: var(--text); background: var(--bg2); }
+.grid-btn.active { background: var(--accent); color: #fff; }
+.grid-btn svg { width: 13px; height: 13px; }
+
+/* ── Photo grid ── */
+.photo-grid {
+  display: grid;
+  gap: 3px;
+  transition: grid-template-columns .2s ease;
+}
+.photo-item {
+  position: relative; overflow: hidden;
+  aspect-ratio: 3/2; background: var(--bg2);
+  cursor: pointer;
+}
+.photo-item img {
+  width: 100%; height: 100%; object-fit: cover;
+  display: block; transition: transform .45s ease;
+}
+.photo-item:hover img { transform: scale(1.05); }
+.photo-item-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,.6) 0%, transparent 55%);
+  opacity: 0; transition: opacity .3s ease;
+  display: flex; flex-direction: column;
+  justify-content: flex-end; padding: 14px;
+}
+.photo-item:hover .photo-item-overlay { opacity: 1; }
+.photo-item-caption {
+  font-size: .76rem; color: rgba(255,255,255,.92); line-height: 1.4;
+}
+.photo-item-meta {
+  font-family: var(--mono); font-size: .64rem;
+  color: rgba(255,255,255,.6); margin-top: 3px;
+}
+.photo-item.hidden { display: none; }
+
+/* ── Empty state ── */
+.photo-empty {
+  grid-column: 1/-1; padding: 60px 0;
+  text-align: center; color: var(--text-dim);
+  font-size: .9rem;
+}
+
+/* ── Lightbox ── */
+.lightbox {
+  display: none; position: fixed; inset: 0; z-index: 300;
+  background: rgba(0,0,0,.92); backdrop-filter: blur(8px);
+  align-items: center; justify-content: center;
+  padding: 20px;
+}
+.lightbox.is-open { display: flex; animation: fade-in .18s ease; }
+.lightbox-inner {
+  position: relative; max-width: min(1100px, 95vw); max-height: 90vh;
+  animation: scale-in .2s ease;
+}
+.lightbox-img {
+  max-width: 100%; max-height: 80vh;
+  object-fit: contain; border-radius: 4px; display: block;
+}
+.lightbox-caption {
+  margin-top: 14px; font-size: .88rem; color: rgba(255,255,255,.8);
+  text-align: center; line-height: 1.5;
+}
+.lightbox-meta {
+  font-family: var(--mono); font-size: .72rem;
+  color: rgba(255,255,255,.45); text-align: center; margin-top: 4px;
+}
+.lightbox-close {
+  position: absolute; top: -40px; right: 0;
+  width: 34px; height: 34px; border-radius: 50%;
+  background: rgba(255,255,255,.12); border: none; cursor: pointer;
+  color: #fff; display: flex; align-items: center; justify-content: center;
+  transition: background .15s;
+}
+.lightbox-close:hover { background: rgba(255,255,255,.22); }
+.lightbox-prev, .lightbox-next {
+  position: fixed; top: 50%; transform: translateY(-50%);
+  width: 44px; height: 44px; border-radius: 50%;
+  background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.15);
+  cursor: pointer; color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  transition: background .15s; font-size: 1.2rem;
+}
+.lightbox-prev { left: 20px; }
+.lightbox-next { right: 20px; }
+.lightbox-prev:hover, .lightbox-next:hover { background: rgba(255,255,255,.2); }
+
+@media (max-width: 600px) {
+  .photo-grid { gap: 2px; }
+  .lightbox-prev { left: 6px; }
+  .lightbox-next { right: 6px; }
+}
+
+  </style>
+</head>
+<body>
+
+
+<nav class="nav">
+  <a class="nav-brand" href="index.html">Overwritten <em>Memories</em></a>
+  <div class="nav-links"><a class="nav-link" href="index.html">Home</a>
+<a class="nav-link active" href="photography.html">Photography</a>
+<a class="nav-link" href="blog.html">Blog</a>
+</div>
+  <div class="nav-actions">
+    <button class="nav-btn" id="search-btn" aria-label="Search"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+    <button class="nav-btn" id="theme-btn" aria-label="Toggle theme"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+    <button class="nav-btn nav-hamburger" id="hamburger-btn" aria-label="Menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+  </div>
+</nav>
+
+<!-- Mobile drawer -->
+<div class="nav-drawer" id="nav-drawer">
+  <div class="nav-drawer-header">
+    <a class="nav-brand" href="index.html">Overwritten <em>Memories</em></a>
+    <button class="nav-btn" id="drawer-close" aria-label="Close"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+  </div>
+  <a class="nav-drawer-link" href="index.html">Home</a>
+<a class="nav-drawer-link active" href="photography.html">Photography</a>
+<a class="nav-drawer-link" href="blog.html">Blog</a>
+
+</div>
+
+<!-- Search overlay -->
+<div class="search-overlay" id="search-overlay">
+  <div class="search-box">
+    <div class="search-input-wrap">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input class="search-input" id="search-input" type="text"
+             placeholder="Search photos, posts, tags…" autocomplete="off">
+    </div>
+    <div class="search-results" id="search-results">
+      <p class="search-empty">Start typing to search…</p>
+    </div>
+    <div class="search-hint">Press <kbd>Esc</kbd> to close · <kbd>⌘K</kbd> to open</div>
+  </div>
+</div>
+
+
+<main class="photo-page">
+  <div class="page-eyebrow">Visual Journal</div>
+  <h1 class="page-title">Photography</h1>
+  <p class="page-intro">A collection of moments — street scenes, landscapes, and quiet corners caught between heartbeats. Shot mostly on film and the occasional digital frame.</p>
+
+  <div class="photo-controls"><div class="tag-bar"><button class="tag-btn active" data-tag="all">all</button>
+<button class="tag-btn" data-tag="street">street</button>
+<button class="tag-btn" data-tag="landscape">landscape</button>
+<button class="tag-btn" data-tag="portrait">portrait</button>
+<button class="tag-btn" data-tag="travel">travel</button>
+<button class="tag-btn" data-tag="black &amp; white">black &amp; white</button>
+<button class="tag-btn" data-tag="film">film</button>
+</div><div class="grid-switcher"><button class="grid-btn" data-cols="3" aria-label="3 columns"><svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor"><rect x="0.8" y="1.0" width="3.5" height="3" rx=".5"/><rect x="5.2" y="1.0" width="3.5" height="3" rx=".5"/><rect x="9.8" y="1.0" width="3.5" height="3" rx=".5"/><rect x="0.8" y="5.0" width="3.5" height="3" rx=".5"/><rect x="5.2" y="5.0" width="3.5" height="3" rx=".5"/><rect x="9.8" y="5.0" width="3.5" height="3" rx=".5"/></svg> 3</button><button class="grid-btn active" data-cols="4" aria-label="4 columns"><svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor"><rect x="-1.5" y="1.0" width="3.5" height="3" rx=".5"/><rect x="3.0" y="1.0" width="3.5" height="3" rx=".5"/><rect x="7.5" y="1.0" width="3.5" height="3" rx=".5"/><rect x="12.0" y="1.0" width="3.5" height="3" rx=".5"/><rect x="-1.5" y="5.0" width="3.5" height="3" rx=".5"/><rect x="3.0" y="5.0" width="3.5" height="3" rx=".5"/><rect x="7.5" y="5.0" width="3.5" height="3" rx=".5"/><rect x="12.0" y="5.0" width="3.5" height="3" rx=".5"/></svg> 4</button><button class="grid-btn" data-cols="6" aria-label="6 columns"><svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor"><rect x="-6.0" y="1.0" width="3.5" height="3" rx=".5"/><rect x="-1.5" y="1.0" width="3.5" height="3" rx=".5"/><rect x="3.0" y="1.0" width="3.5" height="3" rx=".5"/><rect x="7.5" y="1.0" width="3.5" height="3" rx=".5"/><rect x="12.0" y="1.0" width="3.5" height="3" rx=".5"/><rect x="16.5" y="1.0" width="3.5" height="3" rx=".5"/><rect x="-6.0" y="5.0" width="3.5" height="3" rx=".5"/><rect x="-1.5" y="5.0" width="3.5" height="3" rx=".5"/><rect x="3.0" y="5.0" width="3.5" height="3" rx=".5"/><rect x="7.5" y="5.0" width="3.5" height="3" rx=".5"/><rect x="12.0" y="5.0" width="3.5" height="3" rx=".5"/><rect x="16.5" y="5.0" width="3.5" height="3" rx=".5"/></svg> 6</button></div></div>
+
+  <div class="photo-grid" id="photo-grid" style="grid-template-columns: repeat(4, 1fr);">
+    
+    <div class="photo-item" data-cats="" data-src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_44_nuzxei.jpg" data-alt="Photo 44 nuzxei" data-meta="2026" tabindex="0" role="button" aria-label="Photo 44 nuzxei">
+      <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_44_nuzxei.jpg" alt="Photo 44 nuzxei" loading="lazy">
+      <div class="photo-item-overlay">
+        <div class="photo-item-caption">Photo 44 nuzxei</div>
+        <div class="photo-item-meta">2026</div>
+      </div>
+    </div>
+    <div class="photo-item" data-cats="" data-src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_51_gl0m5n.jpg" data-alt="Photo 51 gl0m5n" data-meta="2026" tabindex="0" role="button" aria-label="Photo 51 gl0m5n">
+      <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_51_gl0m5n.jpg" alt="Photo 51 gl0m5n" loading="lazy">
+      <div class="photo-item-overlay">
+        <div class="photo-item-caption">Photo 51 gl0m5n</div>
+        <div class="photo-item-meta">2026</div>
+      </div>
+    </div>
+    <div class="photo-item" data-cats="" data-src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_32_ztwmds.jpg" data-alt="Photo 32 ztwmds" data-meta="2026" tabindex="0" role="button" aria-label="Photo 32 ztwmds">
+      <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_32_ztwmds.jpg" alt="Photo 32 ztwmds" loading="lazy">
+      <div class="photo-item-overlay">
+        <div class="photo-item-caption">Photo 32 ztwmds</div>
+        <div class="photo-item-meta">2026</div>
+      </div>
+    </div>
+    <div class="photo-item" data-cats="" data-src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_61_kubbzv.jpg" data-alt="Photo 61 kubbzv" data-meta="2026" tabindex="0" role="button" aria-label="Photo 61 kubbzv">
+      <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_61_kubbzv.jpg" alt="Photo 61 kubbzv" loading="lazy">
+      <div class="photo-item-overlay">
+        <div class="photo-item-caption">Photo 61 kubbzv</div>
+        <div class="photo-item-meta">2026</div>
+      </div>
+    </div>
+    <div class="photo-item" data-cats="" data-src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_11_yl2taw.jpg" data-alt="Photo 11 yl2taw" data-meta="2026" tabindex="0" role="button" aria-label="Photo 11 yl2taw">
+      <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_11_yl2taw.jpg" alt="Photo 11 yl2taw" loading="lazy">
+      <div class="photo-item-overlay">
+        <div class="photo-item-caption">Photo 11 yl2taw</div>
+        <div class="photo-item-meta">2026</div>
+      </div>
+    </div>
+    <div class="photo-item" data-cats="" data-src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_14_euxgpb.jpg" data-alt="Photo 14 euxgpb" data-meta="2026" tabindex="0" role="button" aria-label="Photo 14 euxgpb">
+      <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_14_euxgpb.jpg" alt="Photo 14 euxgpb" loading="lazy">
+      <div class="photo-item-overlay">
+        <div class="photo-item-caption">Photo 14 euxgpb</div>
+        <div class="photo-item-meta">2026</div>
+      </div>
+    </div>
+    <div class="photo-item" data-cats="" data-src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_12_mkmf44.jpg" data-alt="Photo 12 mkmf44" data-meta="2026" tabindex="0" role="button" aria-label="Photo 12 mkmf44">
+      <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_12_mkmf44.jpg" alt="Photo 12 mkmf44" loading="lazy">
+      <div class="photo-item-overlay">
+        <div class="photo-item-caption">Photo 12 mkmf44</div>
+        <div class="photo-item-meta">2026</div>
+      </div>
+    </div>
+    <div class="photo-item" data-cats="" data-src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_42_hollbw.jpg" data-alt="Photo 42 hollbw" data-meta="2026" tabindex="0" role="button" aria-label="Photo 42 hollbw">
+      <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_42_hollbw.jpg" alt="Photo 42 hollbw" loading="lazy">
+      <div class="photo-item-overlay">
+        <div class="photo-item-caption">Photo 42 hollbw</div>
+        <div class="photo-item-meta">2026</div>
+      </div>
+    </div>
+    <div class="photo-item" data-cats="" data-src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_15_omzgej.jpg" data-alt="Photo 15 omzgej" data-meta="2026" tabindex="0" role="button" aria-label="Photo 15 omzgej">
+      <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_15_omzgej.jpg" alt="Photo 15 omzgej" loading="lazy">
+      <div class="photo-item-overlay">
+        <div class="photo-item-caption">Photo 15 omzgej</div>
+        <div class="photo-item-meta">2026</div>
+      </div>
+    </div>
+    <div class="photo-item" data-cats="" data-src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_22_wixizg.jpg" data-alt="Photo 22 wixizg" data-meta="2026" tabindex="0" role="button" aria-label="Photo 22 wixizg">
+      <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_22_wixizg.jpg" alt="Photo 22 wixizg" loading="lazy">
+      <div class="photo-item-overlay">
+        <div class="photo-item-caption">Photo 22 wixizg</div>
+        <div class="photo-item-meta">2026</div>
+      </div>
+    </div>
+    <div class="photo-item" data-cats="" data-src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_49_earw1m.jpg" data-alt="Photo 49 earw1m" data-meta="2026" tabindex="0" role="button" aria-label="Photo 49 earw1m">
+      <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_49_earw1m.jpg" alt="Photo 49 earw1m" loading="lazy">
+      <div class="photo-item-overlay">
+        <div class="photo-item-caption">Photo 49 earw1m</div>
+        <div class="photo-item-meta">2026</div>
+      </div>
+    </div>
+    <div class="photo-item" data-cats="" data-src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_57_gucgx1.jpg" data-alt="Photo 57 gucgx1" data-meta="2026" tabindex="0" role="button" aria-label="Photo 57 gucgx1">
+      <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_57_gucgx1.jpg" alt="Photo 57 gucgx1" loading="lazy">
+      <div class="photo-item-overlay">
+        <div class="photo-item-caption">Photo 57 gucgx1</div>
+        <div class="photo-item-meta">2026</div>
+      </div>
+    </div>
+    <div class="photo-item" data-cats="" data-src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_60_nz5ior.jpg" data-alt="Photo 60 nz5ior" data-meta="2026" tabindex="0" role="button" aria-label="Photo 60 nz5ior">
+      <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_60_nz5ior.jpg" alt="Photo 60 nz5ior" loading="lazy">
+      <div class="photo-item-overlay">
+        <div class="photo-item-caption">Photo 60 nz5ior</div>
+        <div class="photo-item-meta">2026</div>
+      </div>
+    </div>
+    <div class="photo-item" data-cats="" data-src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_03_lq3xth.jpg" data-alt="Photo 03 lq3xth" data-meta="2026" tabindex="0" role="button" aria-label="Photo 03 lq3xth">
+      <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_03_lq3xth.jpg" alt="Photo 03 lq3xth" loading="lazy">
+      <div class="photo-item-overlay">
+        <div class="photo-item-caption">Photo 03 lq3xth</div>
+        <div class="photo-item-meta">2026</div>
+      </div>
+    </div>
+    <div class="photo-item" data-cats="" data-src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_13_fhqimb.jpg" data-alt="Photo 13 fhqimb" data-meta="2026" tabindex="0" role="button" aria-label="Photo 13 fhqimb">
+      <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_13_fhqimb.jpg" alt="Photo 13 fhqimb" loading="lazy">
+      <div class="photo-item-overlay">
+        <div class="photo-item-caption">Photo 13 fhqimb</div>
+        <div class="photo-item-meta">2026</div>
+      </div>
+    </div>
+    <div class="photo-item" data-cats="" data-src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_41_u94dj7.jpg" data-alt="Photo 41 u94dj7" data-meta="2026" tabindex="0" role="button" aria-label="Photo 41 u94dj7">
+      <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_41_u94dj7.jpg" alt="Photo 41 u94dj7" loading="lazy">
+      <div class="photo-item-overlay">
+        <div class="photo-item-caption">Photo 41 u94dj7</div>
+        <div class="photo-item-meta">2026</div>
+      </div>
+    </div>
+    <div class="photo-item" data-cats="" data-src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_67_qahexk.jpg" data-alt="Photo 67 qahexk" data-meta="2026" tabindex="0" role="button" aria-label="Photo 67 qahexk">
+      <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_67_qahexk.jpg" alt="Photo 67 qahexk" loading="lazy">
+      <div class="photo-item-overlay">
+        <div class="photo-item-caption">Photo 67 qahexk</div>
+        <div class="photo-item-meta">2026</div>
+      </div>
+    </div>
+    <div class="photo-item" data-cats="" data-src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_28_og8it7.jpg" data-alt="Photo 28 og8it7" data-meta="2026" tabindex="0" role="button" aria-label="Photo 28 og8it7">
+      <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_28_og8it7.jpg" alt="Photo 28 og8it7" loading="lazy">
+      <div class="photo-item-overlay">
+        <div class="photo-item-caption">Photo 28 og8it7</div>
+        <div class="photo-item-meta">2026</div>
+      </div>
+    </div>
+    <div class="photo-item" data-cats="" data-src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_48_ij8ef9.jpg" data-alt="Photo 48 ij8ef9" data-meta="2026" tabindex="0" role="button" aria-label="Photo 48 ij8ef9">
+      <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_48_ij8ef9.jpg" alt="Photo 48 ij8ef9" loading="lazy">
+      <div class="photo-item-overlay">
+        <div class="photo-item-caption">Photo 48 ij8ef9</div>
+        <div class="photo-item-meta">2026</div>
+      </div>
+    </div>
+    <div class="photo-item" data-cats="" data-src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_10_qv2wyu.jpg" data-alt="Photo 10 qv2wyu" data-meta="2026" tabindex="0" role="button" aria-label="Photo 10 qv2wyu">
+      <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_10_qv2wyu.jpg" alt="Photo 10 qv2wyu" loading="lazy">
+      <div class="photo-item-overlay">
+        <div class="photo-item-caption">Photo 10 qv2wyu</div>
+        <div class="photo-item-meta">2026</div>
+      </div>
+    </div>
+    <div class="photo-item" data-cats="" data-src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_34_k9ydqa.jpg" data-alt="Photo 34 k9ydqa" data-meta="2026" tabindex="0" role="button" aria-label="Photo 34 k9ydqa">
+      <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_34_k9ydqa.jpg" alt="Photo 34 k9ydqa" loading="lazy">
+      <div class="photo-item-overlay">
+        <div class="photo-item-caption">Photo 34 k9ydqa</div>
+        <div class="photo-item-meta">2026</div>
+      </div>
+    </div>
+    <div class="photo-item" data-cats="" data-src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_02_grzalg.jpg" data-alt="Photo 02 grzalg" data-meta="2026" tabindex="0" role="button" aria-label="Photo 02 grzalg">
+      <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_02_grzalg.jpg" alt="Photo 02 grzalg" loading="lazy">
+      <div class="photo-item-overlay">
+        <div class="photo-item-caption">Photo 02 grzalg</div>
+        <div class="photo-item-meta">2026</div>
+      </div>
+    </div>
+    <div class="photo-item" data-cats="" data-src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_54_gl9n2q.jpg" data-alt="Photo 54 gl9n2q" data-meta="2026" tabindex="0" role="button" aria-label="Photo 54 gl9n2q">
+      <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_54_gl9n2q.jpg" alt="Photo 54 gl9n2q" loading="lazy">
+      <div class="photo-item-overlay">
+        <div class="photo-item-caption">Photo 54 gl9n2q</div>
+        <div class="photo-item-meta">2026</div>
+      </div>
+    </div>
+    <div class="photo-item" data-cats="" data-src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_31_wqoxbh.jpg" data-alt="Photo 31 wqoxbh" data-meta="2026" tabindex="0" role="button" aria-label="Photo 31 wqoxbh">
+      <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_31_wqoxbh.jpg" alt="Photo 31 wqoxbh" loading="lazy">
+      <div class="photo-item-overlay">
+        <div class="photo-item-caption">Photo 31 wqoxbh</div>
+        <div class="photo-item-meta">2026</div>
+      </div>
+    </div>
+    <div class="photo-item" data-cats="" data-src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_52_trhbez.jpg" data-alt="Photo 52 trhbez" data-meta="2026" tabindex="0" role="button" aria-label="Photo 52 trhbez">
+      <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_52_trhbez.jpg" alt="Photo 52 trhbez" loading="lazy">
+      <div class="photo-item-overlay">
+        <div class="photo-item-caption">Photo 52 trhbez</div>
+        <div class="photo-item-meta">2026</div>
+      </div>
+    </div>
+    <div class="photo-item" data-cats="" data-src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_63_yycojk.jpg" data-alt="Photo 63 yycojk" data-meta="2026" tabindex="0" role="button" aria-label="Photo 63 yycojk">
+      <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_63_yycojk.jpg" alt="Photo 63 yycojk" loading="lazy">
+      <div class="photo-item-overlay">
+        <div class="photo-item-caption">Photo 63 yycojk</div>
+        <div class="photo-item-meta">2026</div>
+      </div>
+    </div>
+    <div class="photo-item" data-cats="" data-src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_01_aw80fe.jpg" data-alt="Photo 01 aw80fe" data-meta="2026" tabindex="0" role="button" aria-label="Photo 01 aw80fe">
+      <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_01_aw80fe.jpg" alt="Photo 01 aw80fe" loading="lazy">
+      <div class="photo-item-overlay">
+        <div class="photo-item-caption">Photo 01 aw80fe</div>
+        <div class="photo-item-meta">2026</div>
+      </div>
+    </div>
+    <div class="photo-item" data-cats="" data-src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_21_bnnkdq.jpg" data-alt="Photo 21 bnnkdq" data-meta="2026" tabindex="0" role="button" aria-label="Photo 21 bnnkdq">
+      <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_21_bnnkdq.jpg" alt="Photo 21 bnnkdq" loading="lazy">
+      <div class="photo-item-overlay">
+        <div class="photo-item-caption">Photo 21 bnnkdq</div>
+        <div class="photo-item-meta">2026</div>
+      </div>
+    </div>
+    <div class="photo-item" data-cats="" data-src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_17_itpsly.jpg" data-alt="Photo 17 itpsly" data-meta="2026" tabindex="0" role="button" aria-label="Photo 17 itpsly">
+      <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_17_itpsly.jpg" alt="Photo 17 itpsly" loading="lazy">
+      <div class="photo-item-overlay">
+        <div class="photo-item-caption">Photo 17 itpsly</div>
+        <div class="photo-item-meta">2026</div>
+      </div>
+    </div>
+    <div class="photo-item" data-cats="" data-src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_38_rgcxvy.jpg" data-alt="Photo 38 rgcxvy" data-meta="2026" tabindex="0" role="button" aria-label="Photo 38 rgcxvy">
+      <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_38_rgcxvy.jpg" alt="Photo 38 rgcxvy" loading="lazy">
+      <div class="photo-item-overlay">
+        <div class="photo-item-caption">Photo 38 rgcxvy</div>
+        <div class="photo-item-meta">2026</div>
+      </div>
+    </div>
+    <div class="photo-item" data-cats="" data-src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_24_wswu0q.jpg" data-alt="Photo 24 wswu0q" data-meta="2026" tabindex="0" role="button" aria-label="Photo 24 wswu0q">
+      <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_24_wswu0q.jpg" alt="Photo 24 wswu0q" loading="lazy">
+      <div class="photo-item-overlay">
+        <div class="photo-item-caption">Photo 24 wswu0q</div>
+        <div class="photo-item-meta">2026</div>
+      </div>
+    </div>
+    <div class="photo-item" data-cats="" data-src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_46_n8tntm.jpg" data-alt="Photo 46 n8tntm" data-meta="2026" tabindex="0" role="button" aria-label="Photo 46 n8tntm">
+      <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_46_n8tntm.jpg" alt="Photo 46 n8tntm" loading="lazy">
+      <div class="photo-item-overlay">
+        <div class="photo-item-caption">Photo 46 n8tntm</div>
+        <div class="photo-item-meta">2026</div>
+      </div>
+    </div>
+    <div class="photo-item" data-cats="" data-src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_26_crdlvl.jpg" data-alt="Photo 26 crdlvl" data-meta="2026" tabindex="0" role="button" aria-label="Photo 26 crdlvl">
+      <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_26_crdlvl.jpg" alt="Photo 26 crdlvl" loading="lazy">
+      <div class="photo-item-overlay">
+        <div class="photo-item-caption">Photo 26 crdlvl</div>
+        <div class="photo-item-meta">2026</div>
+      </div>
+    </div>
+    <div class="photo-item" data-cats="" data-src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_40_fswqh4.jpg" data-alt="Photo 40 fswqh4" data-meta="2026" tabindex="0" role="button" aria-label="Photo 40 fswqh4">
+      <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_40_fswqh4.jpg" alt="Photo 40 fswqh4" loading="lazy">
+      <div class="photo-item-overlay">
+        <div class="photo-item-caption">Photo 40 fswqh4</div>
+        <div class="photo-item-meta">2026</div>
+      </div>
+    </div>
+    <div class="photo-item" data-cats="" data-src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_58_loxbye.jpg" data-alt="Photo 58 loxbye" data-meta="2026" tabindex="0" role="button" aria-label="Photo 58 loxbye">
+      <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_58_loxbye.jpg" alt="Photo 58 loxbye" loading="lazy">
+      <div class="photo-item-overlay">
+        <div class="photo-item-caption">Photo 58 loxbye</div>
+        <div class="photo-item-meta">2026</div>
+      </div>
+    </div>
+    <div class="photo-item" data-cats="" data-src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_37_rcvtai.jpg" data-alt="Photo 37 rcvtai" data-meta="2026" tabindex="0" role="button" aria-label="Photo 37 rcvtai">
+      <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_37_rcvtai.jpg" alt="Photo 37 rcvtai" loading="lazy">
+      <div class="photo-item-overlay">
+        <div class="photo-item-caption">Photo 37 rcvtai</div>
+        <div class="photo-item-meta">2026</div>
+      </div>
+    </div>
+    <div class="photo-item" data-cats="" data-src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_04_zwwsix.jpg" data-alt="Photo 04 zwwsix" data-meta="2026" tabindex="0" role="button" aria-label="Photo 04 zwwsix">
+      <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_04_zwwsix.jpg" alt="Photo 04 zwwsix" loading="lazy">
+      <div class="photo-item-overlay">
+        <div class="photo-item-caption">Photo 04 zwwsix</div>
+        <div class="photo-item-meta">2026</div>
+      </div>
+    </div>
+    <div class="photo-item" data-cats="" data-src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_43_apf1kn.jpg" data-alt="Photo 43 apf1kn" data-meta="2026" tabindex="0" role="button" aria-label="Photo 43 apf1kn">
+      <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_43_apf1kn.jpg" alt="Photo 43 apf1kn" loading="lazy">
+      <div class="photo-item-overlay">
+        <div class="photo-item-caption">Photo 43 apf1kn</div>
+        <div class="photo-item-meta">2026</div>
+      </div>
+    </div>
+    <div class="photo-item" data-cats="" data-src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_05_xh0fc3.jpg" data-alt="Photo 05 xh0fc3" data-meta="2026" tabindex="0" role="button" aria-label="Photo 05 xh0fc3">
+      <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_05_xh0fc3.jpg" alt="Photo 05 xh0fc3" loading="lazy">
+      <div class="photo-item-overlay">
+        <div class="photo-item-caption">Photo 05 xh0fc3</div>
+        <div class="photo-item-meta">2026</div>
+      </div>
+    </div>
+    <div class="photo-item" data-cats="" data-src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_27_replne.jpg" data-alt="Photo 27 replne" data-meta="2026" tabindex="0" role="button" aria-label="Photo 27 replne">
+      <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_27_replne.jpg" alt="Photo 27 replne" loading="lazy">
+      <div class="photo-item-overlay">
+        <div class="photo-item-caption">Photo 27 replne</div>
+        <div class="photo-item-meta">2026</div>
+      </div>
+    </div>
+    <div class="photo-item" data-cats="" data-src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_08_slc3vn.jpg" data-alt="Photo 08 slc3vn" data-meta="2026" tabindex="0" role="button" aria-label="Photo 08 slc3vn">
+      <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_08_slc3vn.jpg" alt="Photo 08 slc3vn" loading="lazy">
+      <div class="photo-item-overlay">
+        <div class="photo-item-caption">Photo 08 slc3vn</div>
+        <div class="photo-item-meta">2026</div>
+      </div>
+    </div>
+    <div class="photo-item" data-cats="" data-src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_09_vyof3r.jpg" data-alt="Photo 09 vyof3r" data-meta="2026" tabindex="0" role="button" aria-label="Photo 09 vyof3r">
+      <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_09_vyof3r.jpg" alt="Photo 09 vyof3r" loading="lazy">
+      <div class="photo-item-overlay">
+        <div class="photo-item-caption">Photo 09 vyof3r</div>
+        <div class="photo-item-meta">2026</div>
+      </div>
+    </div>
+    <div class="photo-item" data-cats="" data-src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_33_szhxiv.jpg" data-alt="Photo 33 szhxiv" data-meta="2026" tabindex="0" role="button" aria-label="Photo 33 szhxiv">
+      <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_33_szhxiv.jpg" alt="Photo 33 szhxiv" loading="lazy">
+      <div class="photo-item-overlay">
+        <div class="photo-item-caption">Photo 33 szhxiv</div>
+        <div class="photo-item-meta">2026</div>
+      </div>
+    </div>
+    <div class="photo-item" data-cats="" data-src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_56_grw62j.jpg" data-alt="Photo 56 grw62j" data-meta="2026" tabindex="0" role="button" aria-label="Photo 56 grw62j">
+      <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_56_grw62j.jpg" alt="Photo 56 grw62j" loading="lazy">
+      <div class="photo-item-overlay">
+        <div class="photo-item-caption">Photo 56 grw62j</div>
+        <div class="photo-item-meta">2026</div>
+      </div>
+    </div>
+    <div class="photo-item" data-cats="" data-src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_55_oqvvpn.jpg" data-alt="Photo 55 oqvvpn" data-meta="2026" tabindex="0" role="button" aria-label="Photo 55 oqvvpn">
+      <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_55_oqvvpn.jpg" alt="Photo 55 oqvvpn" loading="lazy">
+      <div class="photo-item-overlay">
+        <div class="photo-item-caption">Photo 55 oqvvpn</div>
+        <div class="photo-item-meta">2026</div>
+      </div>
+    </div>
+    <div class="photo-item" data-cats="" data-src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_65_w1jdhv.jpg" data-alt="Photo 65 w1jdhv" data-meta="2026" tabindex="0" role="button" aria-label="Photo 65 w1jdhv">
+      <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_65_w1jdhv.jpg" alt="Photo 65 w1jdhv" loading="lazy">
+      <div class="photo-item-overlay">
+        <div class="photo-item-caption">Photo 65 w1jdhv</div>
+        <div class="photo-item-meta">2026</div>
+      </div>
+    </div>
+    <div class="photo-item" data-cats="" data-src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_66_xpv8o8.jpg" data-alt="Photo 66 xpv8o8" data-meta="2026" tabindex="0" role="button" aria-label="Photo 66 xpv8o8">
+      <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_66_xpv8o8.jpg" alt="Photo 66 xpv8o8" loading="lazy">
+      <div class="photo-item-overlay">
+        <div class="photo-item-caption">Photo 66 xpv8o8</div>
+        <div class="photo-item-meta">2026</div>
+      </div>
+    </div>
+    <div class="photo-item" data-cats="" data-src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_20_kabnuf.jpg" data-alt="Photo 20 kabnuf" data-meta="2026" tabindex="0" role="button" aria-label="Photo 20 kabnuf">
+      <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_20_kabnuf.jpg" alt="Photo 20 kabnuf" loading="lazy">
+      <div class="photo-item-overlay">
+        <div class="photo-item-caption">Photo 20 kabnuf</div>
+        <div class="photo-item-meta">2026</div>
+      </div>
+    </div>
+    <div class="photo-item" data-cats="" data-src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_53_gxstyj.jpg" data-alt="Photo 53 gxstyj" data-meta="2026" tabindex="0" role="button" aria-label="Photo 53 gxstyj">
+      <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_53_gxstyj.jpg" alt="Photo 53 gxstyj" loading="lazy">
+      <div class="photo-item-overlay">
+        <div class="photo-item-caption">Photo 53 gxstyj</div>
+        <div class="photo-item-meta">2026</div>
+      </div>
+    </div>
+    <div class="photo-item" data-cats="" data-src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_30_v69wop.jpg" data-alt="Photo 30 v69wop" data-meta="2026" tabindex="0" role="button" aria-label="Photo 30 v69wop">
+      <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_30_v69wop.jpg" alt="Photo 30 v69wop" loading="lazy">
+      <div class="photo-item-overlay">
+        <div class="photo-item-caption">Photo 30 v69wop</div>
+        <div class="photo-item-meta">2026</div>
+      </div>
+    </div>
+    <div class="photo-item" data-cats="" data-src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_25_oati23.jpg" data-alt="Photo 25 oati23" data-meta="2026" tabindex="0" role="button" aria-label="Photo 25 oati23">
+      <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_25_oati23.jpg" alt="Photo 25 oati23" loading="lazy">
+      <div class="photo-item-overlay">
+        <div class="photo-item-caption">Photo 25 oati23</div>
+        <div class="photo-item-meta">2026</div>
+      </div>
+    </div>
+    <div class="photo-item" data-cats="" data-src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_50_lmdio4.jpg" data-alt="Photo 50 lmdio4" data-meta="2026" tabindex="0" role="button" aria-label="Photo 50 lmdio4">
+      <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_50_lmdio4.jpg" alt="Photo 50 lmdio4" loading="lazy">
+      <div class="photo-item-overlay">
+        <div class="photo-item-caption">Photo 50 lmdio4</div>
+        <div class="photo-item-meta">2026</div>
+      </div>
+    </div>
+    <div class="photo-item" data-cats="" data-src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_16_c9xtxb.jpg" data-alt="Photo 16 c9xtxb" data-meta="2026" tabindex="0" role="button" aria-label="Photo 16 c9xtxb">
+      <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_16_c9xtxb.jpg" alt="Photo 16 c9xtxb" loading="lazy">
+      <div class="photo-item-overlay">
+        <div class="photo-item-caption">Photo 16 c9xtxb</div>
+        <div class="photo-item-meta">2026</div>
+      </div>
+    </div>
+    <div class="photo-item" data-cats="" data-src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_45_xegubj.jpg" data-alt="Photo 45 xegubj" data-meta="2026" tabindex="0" role="button" aria-label="Photo 45 xegubj">
+      <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_45_xegubj.jpg" alt="Photo 45 xegubj" loading="lazy">
+      <div class="photo-item-overlay">
+        <div class="photo-item-caption">Photo 45 xegubj</div>
+        <div class="photo-item-meta">2026</div>
+      </div>
+    </div>
+    <div class="photo-item" data-cats="" data-src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_39_b5wsve.jpg" data-alt="Photo 39 b5wsve" data-meta="2026" tabindex="0" role="button" aria-label="Photo 39 b5wsve">
+      <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_39_b5wsve.jpg" alt="Photo 39 b5wsve" loading="lazy">
+      <div class="photo-item-overlay">
+        <div class="photo-item-caption">Photo 39 b5wsve</div>
+        <div class="photo-item-meta">2026</div>
+      </div>
+    </div>
+    <div class="photo-item" data-cats="" data-src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_19_lmpeiz.jpg" data-alt="Photo 19 lmpeiz" data-meta="2026" tabindex="0" role="button" aria-label="Photo 19 lmpeiz">
+      <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_19_lmpeiz.jpg" alt="Photo 19 lmpeiz" loading="lazy">
+      <div class="photo-item-overlay">
+        <div class="photo-item-caption">Photo 19 lmpeiz</div>
+        <div class="photo-item-meta">2026</div>
+      </div>
+    </div>
+    <div class="photo-item" data-cats="" data-src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_35_ggibbh.jpg" data-alt="Photo 35 ggibbh" data-meta="2026" tabindex="0" role="button" aria-label="Photo 35 ggibbh">
+      <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_35_ggibbh.jpg" alt="Photo 35 ggibbh" loading="lazy">
+      <div class="photo-item-overlay">
+        <div class="photo-item-caption">Photo 35 ggibbh</div>
+        <div class="photo-item-meta">2026</div>
+      </div>
+    </div>
+    <div class="photo-item" data-cats="" data-src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_18_k6tr8i.jpg" data-alt="Photo 18 k6tr8i" data-meta="2026" tabindex="0" role="button" aria-label="Photo 18 k6tr8i">
+      <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_18_k6tr8i.jpg" alt="Photo 18 k6tr8i" loading="lazy">
+      <div class="photo-item-overlay">
+        <div class="photo-item-caption">Photo 18 k6tr8i</div>
+        <div class="photo-item-meta">2026</div>
+      </div>
+    </div>
+    <div class="photo-item" data-cats="" data-src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_06_lf2uy4.jpg" data-alt="Photo 06 lf2uy4" data-meta="2026" tabindex="0" role="button" aria-label="Photo 06 lf2uy4">
+      <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_06_lf2uy4.jpg" alt="Photo 06 lf2uy4" loading="lazy">
+      <div class="photo-item-overlay">
+        <div class="photo-item-caption">Photo 06 lf2uy4</div>
+        <div class="photo-item-meta">2026</div>
+      </div>
+    </div>
+    <div class="photo-item" data-cats="" data-src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_59_doyeki.jpg" data-alt="Photo 59 doyeki" data-meta="2026" tabindex="0" role="button" aria-label="Photo 59 doyeki">
+      <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_59_doyeki.jpg" alt="Photo 59 doyeki" loading="lazy">
+      <div class="photo-item-overlay">
+        <div class="photo-item-caption">Photo 59 doyeki</div>
+        <div class="photo-item-meta">2026</div>
+      </div>
+    </div>
+    <div class="photo-item" data-cats="" data-src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_47_mctvyp.jpg" data-alt="Photo 47 mctvyp" data-meta="2026" tabindex="0" role="button" aria-label="Photo 47 mctvyp">
+      <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_47_mctvyp.jpg" alt="Photo 47 mctvyp" loading="lazy">
+      <div class="photo-item-overlay">
+        <div class="photo-item-caption">Photo 47 mctvyp</div>
+        <div class="photo-item-meta">2026</div>
+      </div>
+    </div>
+    <div class="photo-item" data-cats="" data-src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_23_sylrwp.jpg" data-alt="Photo 23 sylrwp" data-meta="2026" tabindex="0" role="button" aria-label="Photo 23 sylrwp">
+      <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_23_sylrwp.jpg" alt="Photo 23 sylrwp" loading="lazy">
+      <div class="photo-item-overlay">
+        <div class="photo-item-caption">Photo 23 sylrwp</div>
+        <div class="photo-item-meta">2026</div>
+      </div>
+    </div>
+    <div class="photo-item" data-cats="" data-src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_07_tedl9l.jpg" data-alt="Photo 07 tedl9l" data-meta="2026" tabindex="0" role="button" aria-label="Photo 07 tedl9l">
+      <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_07_tedl9l.jpg" alt="Photo 07 tedl9l" loading="lazy">
+      <div class="photo-item-overlay">
+        <div class="photo-item-caption">Photo 07 tedl9l</div>
+        <div class="photo-item-meta">2026</div>
+      </div>
+    </div>
+    <div class="photo-item" data-cats="" data-src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_64_br4ujy.jpg" data-alt="Photo 64 br4ujy" data-meta="2026" tabindex="0" role="button" aria-label="Photo 64 br4ujy">
+      <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_64_br4ujy.jpg" alt="Photo 64 br4ujy" loading="lazy">
+      <div class="photo-item-overlay">
+        <div class="photo-item-caption">Photo 64 br4ujy</div>
+        <div class="photo-item-meta">2026</div>
+      </div>
+    </div>
+    <div class="photo-item" data-cats="" data-src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_36_d5tm8m.jpg" data-alt="Photo 36 d5tm8m" data-meta="2026" tabindex="0" role="button" aria-label="Photo 36 d5tm8m">
+      <img src="https://res.cloudinary.com/dwcvdyc2w/image/upload/f_auto,q_auto/Photo_36_d5tm8m.jpg" alt="Photo 36 d5tm8m" loading="lazy">
+      <div class="photo-item-overlay">
+        <div class="photo-item-caption">Photo 36 d5tm8m</div>
+        <div class="photo-item-meta">2026</div>
+      </div>
+    </div>
+    <div class="photo-empty" id="photo-empty" style="display:none">No photos in this category yet.</div>
+  </div>
+</main>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" id="lb-close" aria-label="Close"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    <img class="lightbox-img" id="lb-img" src="" alt="">
+    <div class="lightbox-caption" id="lb-caption"></div>
+    <div class="lightbox-meta"    id="lb-meta"></div>
+  </div>
+  <button class="lightbox-prev" id="lb-prev" aria-label="Previous">&#8592;</button>
+  <button class="lightbox-next" id="lb-next" aria-label="Next">&#8594;</button>
+</div>
+
+
+<footer class="footer">
+  <span>All images © Arnab Laha. All rights reserved.</span>
+  <div class="footer-social"><a href="https://github.com/alaha999" target="_blank" rel="noopener" aria-label="GitHub"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg></a>
+<a href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+</div>
+</footer>
+
+
+<script>window.SEARCH_INDEX = [{"title": "Photo 44 nuzxei", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 51 gl0m5n", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 32 ztwmds", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 61 kubbzv", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 11 yl2taw", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 14 euxgpb", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 12 mkmf44", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 42 hollbw", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 15 omzgej", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 22 wixizg", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 49 earw1m", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 57 gucgx1", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 60 nz5ior", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 03 lq3xth", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 13 fhqimb", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 41 u94dj7", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 67 qahexk", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 28 og8it7", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 48 ij8ef9", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 10 qv2wyu", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 34 k9ydqa", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 02 grzalg", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 54 gl9n2q", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 31 wqoxbh", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 52 trhbez", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 63 yycojk", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 01 aw80fe", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 21 bnnkdq", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 17 itpsly", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 38 rgcxvy", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 24 wswu0q", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 46 n8tntm", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 26 crdlvl", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 40 fswqh4", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 58 loxbye", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 37 rcvtai", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 04 zwwsix", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 43 apf1kn", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 05 xh0fc3", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 27 replne", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 08 slc3vn", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 09 vyof3r", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 33 szhxiv", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 56 grw62j", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 55 oqvvpn", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 65 w1jdhv", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 66 xpv8o8", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 20 kabnuf", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 53 gxstyj", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 30 v69wop", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 25 oati23", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 50 lmdio4", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 16 c9xtxb", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 45 xegubj", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 39 b5wsve", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 19 lmpeiz", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 35 ggibbh", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 18 k6tr8i", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 06 lf2uy4", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 59 doyeki", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 47 mctvyp", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 23 sylrwp", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 07 tedl9l", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 64 br4ujy", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Photo 36 d5tm8m", "href": "photography.html", "tags": [], "meta": " · 2026", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>"}, {"title": "Train journeys", "href": "storage/blogs/blog1.html", "tags": ["film", "journeys"], "meta": "16-01-2022", "icon": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"/><polyline points=\"14 2 14 8 20 8\"/></svg>"}];</script>
+
+<script>
+// ── Theme toggle ──
+(function() {
+  var html = document.documentElement;
+  var btn  = document.getElementById('theme-btn');
+  if (!btn) return;
+  function sync() {
+    var dark = html.getAttribute('data-theme') === 'dark';
+    btn.innerHTML = dark
+      ? '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>'
+      : '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+    btn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+  }
+  btn.addEventListener('click', function() {
+    var next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+    sync();
+  });
+  var saved = localStorage.getItem('theme');
+  if (saved) { html.setAttribute('data-theme', saved); }
+  sync();
+})();
+
+// ── Search ──
+(function() {
+  var overlay = document.getElementById('search-overlay');
+  var input   = document.getElementById('search-input');
+  var results = document.getElementById('search-results');
+  var openBtn = document.getElementById('search-btn');
+  if (!overlay) return;
+
+  function open() { overlay.classList.add('is-open'); setTimeout(function(){ input && input.focus(); }, 50); }
+  function close() { overlay.classList.remove('is-open'); if(input) input.value=''; renderResults(''); }
+
+  if (openBtn) openBtn.addEventListener('click', open);
+  overlay.addEventListener('click', function(e) { if (e.target === overlay) close(); });
+  document.addEventListener('keydown', function(e) {
+    if ((e.metaKey || e.ctrlKey) && e.key === 'k') { e.preventDefault(); open(); }
+    if (e.key === 'Escape') close();
+  });
+
+  function renderResults(q) {
+    if (!results) return;
+    var items = (window.SEARCH_INDEX || []);
+    var filtered = q.length < 2 ? [] : items.filter(function(it) {
+      return (it.title + ' ' + (it.tags || []).join(' ') + ' ' + (it.meta || '')).toLowerCase().indexOf(q.toLowerCase()) > -1;
+    });
+    if (q.length < 2) {
+      results.innerHTML = '<p class="search-empty">Start typing to search…</p>';
+      return;
+    }
+    if (!filtered.length) {
+      results.innerHTML = '<p class="search-empty">No results for <strong>' + q + '</strong></p>';
+      return;
+    }
+    results.innerHTML = filtered.map(function(it) {
+      return '<a class="search-result-item" href="' + it.href + '">'
+        + '<span class="search-result-icon">' + (it.icon || '') + '</span>'
+        + '<span><div class="search-result-title">' + it.title + '</div>'
+        + '<div class="search-result-meta">' + (it.meta || '') + '</div></span></a>';
+    }).join('');
+  }
+
+  if (input) input.addEventListener('input', function() { renderResults(this.value); });
+  renderResults('');
+})();
+
+// ── Mobile drawer ──
+(function() {
+  var btn    = document.getElementById('hamburger-btn');
+  var drawer = document.getElementById('nav-drawer');
+  var close  = document.getElementById('drawer-close');
+  if (!btn || !drawer) return;
+  btn.addEventListener('click', function()   { drawer.classList.add('is-open'); });
+  if (close) close.addEventListener('click', function() { drawer.classList.remove('is-open'); });
+})();
+</script>
+
+
+<script>
+(function() {
+  // ── Grid column switcher ──
+  var grid     = document.getElementById('photo-grid');
+  var gridBtns = document.querySelectorAll('.grid-btn');
+  gridBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      gridBtns.forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      var cols = btn.getAttribute('data-cols');
+      if (grid) grid.style.gridTemplateColumns = 'repeat(' + cols + ', 1fr)';
+    });
+  });
+
+  // ── Tag filter ──
+  var tagBtns = document.querySelectorAll('.tag-btn');
+  var items   = document.querySelectorAll('.photo-item');
+  var emptyEl = document.getElementById('photo-empty');
+
+  tagBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      tagBtns.forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      var tag = btn.getAttribute('data-tag');
+      var visible = 0;
+      items.forEach(function(item) {
+        var cats = (item.getAttribute('data-cats') || '').split(',');
+        var show = tag === 'all' || cats.indexOf(tag) > -1;
+        item.classList.toggle('hidden', !show);
+        if (show) visible++;
+      });
+      if (emptyEl) emptyEl.style.display = visible === 0 ? 'block' : 'none';
+    });
+  });
+
+  // ── Lightbox ──
+  var lb       = document.getElementById('lightbox');
+  var lbImg    = document.getElementById('lb-img');
+  var lbCap    = document.getElementById('lb-caption');
+  var lbMeta   = document.getElementById('lb-meta');
+  var lbClose  = document.getElementById('lb-close');
+  var lbPrev   = document.getElementById('lb-prev');
+  var lbNext   = document.getElementById('lb-next');
+  if (!lb) return;
+
+  var visibleItems = function() {
+    return Array.from(items).filter(function(i) { return !i.classList.contains('hidden'); });
+  };
+  var currentIdx = 0;
+
+  function openAt(idx) {
+    var vi = visibleItems();
+    if (!vi.length) return;
+    currentIdx = (idx + vi.length) % vi.length;
+    var item = vi[currentIdx];
+    lbImg.src = item.getAttribute('data-src') || '';
+    lbImg.alt = item.getAttribute('data-alt') || '';
+    lbCap.textContent  = item.getAttribute('data-alt')  || '';
+    lbMeta.textContent = item.getAttribute('data-meta') || '';
+    lb.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLb() {
+    lb.classList.remove('is-open');
+    document.body.style.overflow = '';
+    lbImg.src = '';
+  }
+
+  items.forEach(function(item, i) {
+    item.addEventListener('click', function() {
+      var vi = visibleItems();
+      openAt(vi.indexOf(item));
+    });
+  });
+
+  if (lbClose) lbClose.addEventListener('click', closeLb);
+  lb.addEventListener('click', function(e) { if (e.target === lb) closeLb(); });
+  if (lbPrev) lbPrev.addEventListener('click', function() { openAt(currentIdx - 1); });
+  if (lbNext) lbNext.addEventListener('click', function() { openAt(currentIdx + 1); });
+
+  document.addEventListener('keydown', function(e) {
+    if (!lb.classList.contains('is-open')) return;
+    if (e.key === 'Escape')     closeLb();
+    if (e.key === 'ArrowLeft')  openAt(currentIdx - 1);
+    if (e.key === 'ArrowRight') openAt(currentIdx + 1);
+  });
+})();
+</script>
+
+</body>
+</html>

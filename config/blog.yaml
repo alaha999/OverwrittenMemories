@@ -1,0 +1,21 @@
+blog:
+  page_title:  "Blog"
+  eyebrow:     "Written Notes"
+  intro:       >
+    Thoughts on photography, travel, and the quiet art of paying attention.
+    Some long, some short - that's life!
+
+  # Grid columns for blog cards: 2 | 3 | 4
+  grid_columns: 4
+
+  # Show collapse-all / expand-all button
+  show_collapse_controls: true
+
+  posts:
+    - title:     "Train journeys"
+      date:      "16-01-2022"
+      tags:      ["film", "journeys"]
+      collapsed: false
+      github_url: "storage/blogs/blog1.html"
+      description: >
+        I was lucky to travel to many places in India by train. Those long journeys, conversations with unknown people, sharing the same agony of missing trains, and the happiness of grabbing a window seat significantly impacted me to experience the struggle of living.
